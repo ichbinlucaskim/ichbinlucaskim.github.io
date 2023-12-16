@@ -94,5 +94,5 @@ software, Python, HTML/CSS, Java, C programming
 
 ## Language Proficiency
 
-- EnglishL: Competent
+- English: Competent
 - Korean: Native
