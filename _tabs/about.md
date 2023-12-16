@@ -10,7 +10,7 @@ order: 4
 
 
 
-Great to meet you. 
+Great to meet you. My name is Lucas Kim. 
 
 I am student who would like to be a ***researcher*** in the field of Artificial Intelligence. 
 
