@@ -84,6 +84,24 @@ software, Python, HTML/CSS, Java, C programming
 
 ---
 
+## Core Projects
+
+#### [Reinforcement Learning & Trading](https://colab.research.google.com/drive/1j0KudLu2bKSdPSdCrqFr9ycncw9CIbEc?usp=sharing)
+
+- *Persoanl project*
+- Aimed to provide foundational knowledge of RL and guidelines for its practical application 
+- Planned and executed the project independently using reference code
+- Utilizing Colab for universal accessibility
+
+#### [YOLOX](https://colab.research.google.com/drive/1x9jkxH45_KS4XeMx0fZSA6Rimt7GPqMQ?usp=sharing) Paper Review & Implementation
+
+- *Team project*
+- Reviewed the YOLO-X paper and aimed to write its actual code 
+- Responsible for planning, paper reviewing, and inspecting code 
+- Utilizing Colab for universal accessibility
+
+---
+
 ## Technical Skills
 
 - Languages: Python, C++, SQL, LaTeX

@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Lucastellar</title>
   <subtitle>Never stop reinforcing myself.</subtitle>
-  <updated>2023-12-16T21:02:28+09:00</updated>
+  <updated>2023-12-16T22:07:03+09:00</updated>
   <author>
     <name>Lucas Kim</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/posts/curriculum-vitae/" rel="alternate" type="text/html" title="Curriculum Vitae" />
     <published>2023-12-16T20:00:00+09:00</published>
   
-    <updated>2023-12-16T20:00:00+09:00</updated>
+    <updated>2023-12-16T21:08:21+09:00</updated>
   
     <id>http://localhost:4000/posts/curriculum-vitae/</id>
     <content src="http://localhost:4000/posts/curriculum-vitae/" />
@@ -81,12 +81,12 @@ MS AI School, Microsoft (Seoul, Korea, 2023.06-2023.12)
     <link href="http://localhost:4000/posts/personal-history/" rel="alternate" type="text/html" title="Personal History" />
     <published>2023-12-16T19:10:00+09:00</published>
   
-    <updated>2023-12-16T19:10:00+09:00</updated>
+    <updated>2023-12-16T21:24:22+09:00</updated>
   
     <id>http://localhost:4000/posts/personal-history/</id>
     <content src="http://localhost:4000/posts/personal-history/" />
     <author>
-      <name>Lucas Kim</name>
+      <name>Lucas</name>
     </author>
 
   
