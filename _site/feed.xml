@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>Lucastellar</title>
   <subtitle>Never stop reinforcing myself.</subtitle>
-  <updated>2023-12-16T14:50:27+09:00</updated>
+  <updated>2023-12-16T20:51:44+09:00</updated>
   <author>
     <name>Lucas Kim</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,100 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Curriculum Vitae</title>
+    <link href="http://localhost:4000/posts/curriculum-vitae/" rel="alternate" type="text/html" title="Curriculum Vitae" />
+    <published>2023-12-16T20:00:00+09:00</published>
+  
+    <updated>2023-12-16T20:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/curriculum-vitae/</id>
+    <content src="http://localhost:4000/posts/curriculum-vitae/" />
+    <author>
+      <name>Lucas</name>
+    </author>
+
+  
+    
+    <category term="ICHBINLUCAS" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Interests
+
+Reinforcement Learning, Deep Learning, Decision Making and Unsupervised Learning
+
+
+
+Education
+
+Sangmyung University (Seoul, Korea, 2016-2022)
+
+
+  Bachelor of Business Administration
+  GPA: 3.44/4.5 (88.4/100)
+
+
+
+
+Extra-Curricular Activities
+
+MS AI School, Microsoft (Seoul, Korea, 2023.06-2023.12)
+
+
+  Bootcamp of Microsoft Korea for Artificial Intelligent education
+  Covered AI basics...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Personal History</title>
+    <link href="http://localhost:4000/posts/personal-history/" rel="alternate" type="text/html" title="Personal History" />
+    <published>2023-12-16T19:10:00+09:00</published>
+  
+    <updated>2023-12-16T19:10:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/personal-history/</id>
+    <content src="http://localhost:4000/posts/personal-history/" />
+    <author>
+      <name>Lucas Kim</name>
+    </author>
+
+  
+    
+    <category term="ICHBINLUCAS" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      A Time for Reflection
+
+
+  For the first two years of my studies, I focused solely on the field of investment, immersing myself in the world of value investment, and reading books by successful investors, such as Warren Buffet and Peter Lynch. However, as I delved deeper into the subject, I began to ask myself two questions: “In an age overflowing with data, is an approach like value investing, ...
+    </summary>
+  
+
+  </entry>
 
 </feed>
 
