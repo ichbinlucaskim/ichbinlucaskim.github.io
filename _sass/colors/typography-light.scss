@@ -16,8 +16,8 @@
   --label-color: #585858;
   --blockquote-border-color: #eeeeee;
   --blockquote-text-color: #757575;
-  --link-color: #0056b2;
-  --link-underline-color: #dee2e6;
+  --link-color: rgb(16, 72, 241);
+  --link-underline-color: rgb(16, 72, 241);
   --button-bg: #ffffff;
   --btn-border-color: #e9ecef;
   --btn-backtotop-color: #686868;
@@ -38,16 +38,16 @@
   );
 
   /* Sidebar */
-  --site-title-color: rgb(113, 113, 113);
-  --site-subtitle-color: #717171;
+  --site-title-color: #f1eded;
+  --site-subtitle-color: #868686;
   --sidebar-bg: #f6f8fa;
   --sidebar-border-color: #efefef;
-  --sidebar-muted-color: #545454;
+  --sidebar-muted-color: #101010;
   --sidebar-active-color: #1d1d1d;
-  --sidebar-hover-bg: rgb(223, 233, 241, 0.64);
-  --sidebar-btn-bg: white;
-  --sidebar-btn-color: #8e8e8e;
-  --avatar-border-color: white;
+  --sidebar-hover-bg: rgba(223, 233, 241, 0.487);
+  --sidebar-btn-bg: rgba(255, 255, 255, 0.6);
+  --sidebar-btn-color: #201f1f;
+  --avatar-border-color: rgba(53, 52, 52, 0.9);
 
   /* Topbar */
   --topbar-bg: rgb(255, 255, 255, 0.7);
@@ -62,7 +62,7 @@
   --btn-paginator-hover-color: var(--sidebar-bg);
 
   /* Posts */
-  --toc-highlight: #0550ae;
+  --toc-highlight: #173eeb;
   --btn-share-color: gray;
   --btn-share-hover-color: #0d6efd;
   --card-bg: white;
