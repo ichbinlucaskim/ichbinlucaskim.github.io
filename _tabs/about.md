@@ -20,6 +20,6 @@ I was an undergraduate at [Sangmyung University](https://www.smu.ac.kr/eng1/inde
 
 I am a deep thinker who enjoys engaging in open discussions. I always strive to share what I have learned and what I possess. This drives me to constantly seek opportunities for growth and to contribute towards a meaningful purpose.
 
-If you wish to learn more about me, please feel free to review my [Personal History](https://ichbinlucaskim.github.io/posts/personal-history/) and [Curriculum Vitae](https://ichbinlucaskim.github.io/posts/curriculum-vitae/).
+If you wish to learn more about me, please feel free to review my [Personal History](https://ichbinlucaskim.github.io/posts/personal-history) and [Curriculum Vitae](https://ichbinlucaskim.github.io/posts/curriculum-vitae).
 
 Thank you :)
