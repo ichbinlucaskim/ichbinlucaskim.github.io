@@ -1,6 +1,6 @@
 ---
 title: Personal History
-author: Lucas Kim
+author: Lucas
 date: 2023-12-16 19:10:00 +0900
 categories: [ICHBINLUCAS]
 tags: [Personal, History]
