@@ -88,7 +88,7 @@ software, Python, HTML/CSS, Java, C programming
 
 #### [Reinforcement Learning & Trading](https://colab.research.google.com/drive/1j0KudLu2bKSdPSdCrqFr9ycncw9CIbEc?usp=sharing)
 
-- *Persoanl project*
+- *Personal project*
 - Aimed to provide foundational knowledge of RL and guidelines for its practical application 
 - Planned and executed the project independently using reference code
 - Utilizing Colab for universal accessibility
