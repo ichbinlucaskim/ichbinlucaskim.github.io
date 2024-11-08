@@ -2,7 +2,7 @@
 title: About Investment and AI
 author: Lucas
 date: 2024-01-12 08:00:00 +0900
-categories: [Investment]
+categories: [INVESTMENT]
 tags: [Investment, AI]
 render_with_liquid: false
 ---

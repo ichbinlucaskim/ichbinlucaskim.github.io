@@ -1,7 +1,7 @@
 ---
 title: Curriculum Vitae
 author: Lucas
-date: 2023-12-16 20:00:00 +0900
+date: 2024-11-07 20:00:00 -0800
 categories: [ICHBINLUCAS]
 tags: [Curriculum, Vitae]
 render_with_liquid: false
@@ -9,11 +9,16 @@ render_with_liquid: false
 
 ## Interests
 
-Reinforcement Learning, Deep Learning, Decision Making and Unsupervised Learning
+Problem-Solving with Data, Logical Decision Making, Machine Learning Techniques (Deep Learning, Reinforcement Learning)
 
 ---
 
 ## Education
+
+#### [Loyola Marymount University](https://www.lmu.edu/) (Los Angeles, USA, 2024-Present)
+
+- Master's in Science, Computer Science
+- Specialization in Machine Learning
 
 #### [Sangmyung University](https://www.smu.ac.kr/eng1/index.do) (Seoul, Korea, 2016-2022)
 
@@ -104,13 +109,8 @@ software, Python, HTML/CSS, Java, C programming
 
 ## Technical Skills
 
-- Languages: Python, C++, SQL, LaTeX
-- Web Development: HTML/CSS, JavaScript, Django, Flask
+- Programming: Python, Scala, SQL, LaTeX
+- Web Development: HTML/CSS, JavaScript, Flutter
 - Applications: GitHub, Colab, Jupyter Notebook, Microsoft Azure, Docker, Notion
 - Operating Systems: Windows, Linux, Mac OS
 - Office: PowerPoint, Excel, Word, Keynote, Pages, Numbers, Markdown
-
-## Language Proficiency
-
-- English: Competent
-- Korean: Native
