@@ -1,94 +1,80 @@
-<div align="center">
+# ichbinlucaskim.github.io
 
-  # Chirpy Jekyll Theme
+Personal portfolio for Lucas Kim — spatial ML engineer. Built with Vite + React +
+Tailwind CSS, routed with React Router (HashRouter), deployed to GitHub Pages.
 
-  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
+Clean, Apple-inspired design: light canvas, near-black ink, generous whitespace, one
+blue accent, a single sans family (San Francisco on Apple devices, Inter as
+fallback). The signature element is a **geometric line-art motif system** — each
+project gets a domain-true wireframe (floor plan, node-edge graph, contour field,
+strata) instead of a fake screenshot.
 
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)][gem]&nbsp;
-  [![CI](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml/badge.svg?branch=master&event=push)][ci]&nbsp;
-  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4e556876a3c54d5e8f2d2857c4f43894)][codacy]&nbsp;
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)][license]&nbsp;
-  [![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
+## Run locally
 
-  [**Live Demo →**][demo]
+```bash
+npm install
+npm run dev      # dev server at http://localhost:5173
+npm run build    # production build → dist/
+npm run preview  # serve the production build locally
+```
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+## Routes (HashRouter — works on GitHub Pages with no server config)
 
-</div>
+- `/#/` — Home: hero, **Selected work** project grid, About, Contact (anchored
+  sections; the nav scrolls to them).
+- `/#/projects/aec-pipeline` — full case study with a sticky "On this page" TOC.
+- `/#/projects/:slug` — other projects render a minimal "case study coming" stub.
 
-## Features
+## Structure
 
-<details>
-  <summary>Click to expand/close details</summary>
-  &nbsp;
+```
+index.html               # entry, fonts (Inter fallback), meta
+src/
+  main.jsx              # HashRouter + routes + Layout (Nav / Outlet / Footer)
+  index.css            # Tailwind v4 + design tokens (@theme) + motion
+  data/
+    profile.js         # ← name, email, links, credentials
+    projects.js        # ← project cards + the AEC case-study content
+  components/
+    Nav.jsx            # sticky nav, scroll-aware, section scrolling
+    Footer.jsx
+    ProjectCard.jsx    # whole-card link + motif thumbnail
+    Motif.jsx          # the geometric motif system (plan/graph/contour/strata)
+    HeroGraph.jsx      # hero node-graph with the one load animation
+    SectionNav.jsx     # sticky case-study TOC (active-section highlight)
+    Tag.jsx
+  pages/
+    Home.jsx
+    Project.jsx        # case study + coming-soon + not-found
+.github/workflows/deploy.yml   # Pages-from-Actions deploy
+```
 
-- Dark / Light Theme Mode
-- Localized UI language
-- Pinned Posts on Home Page
-- Hierarchical Categories
-- Trending Tags
-- Table of Contents
-- Last Modified Date
-- Syntax Highlighting
-- Mathematical Expressions
-- Mermaid Diagrams & Flowcharts
-- Dark / Light Mode Images
-- Embed Videos
-- Disqus / Giscus / Utterances Comments
-- Built-in Search
-- Atom Feeds
-- PWA
-- Google Analytics
-- SEO & Performance Optimization
+## Design tokens (quick reference)
 
-</details>
+- **Color:** `canvas` #FFFFFF · `surface` #F5F5F7 · `ink` #1D1D1F · `muted` #6E6E73 ·
+  `faint` #86868B · `line` #D2D2D7 · `accent` #1564FF. Defined in `src/index.css`
+  under `@theme`.
+- **Type:** one SF/Inter sans family; hierarchy by size + weight; mono only for
+  metrics. Body 17px (Apple's body size).
+- **Motion:** hero node-graph draws its edges once on load; card hover lifts.
+  Respects `prefers-reduced-motion`.
 
-## Documentation
+## Deploy
 
-To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds with Vite and
+publishes `dist/` via the official Pages-from-Actions flow.
 
-## Contributing
+**One-time setup:** repo **Settings → Pages → Source → GitHub Actions**. User site, so
+it serves at the domain root (`base: '/'` in `vite.config.js`). HashRouter means deep
+links like `/#/projects/aec-pipeline` work without a 404 fallback.
 
-Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
-to learn, inspire, and create. Any contributions you make are greatly appreciated.
-For details, see the "[Contributing Guidelines][contribute-guide]".
+## Placeholders waiting on assets
 
-## Credits
-
-This project was built primarily with the [Jekyll][jekyllrb] ecosystem,
-[Bootstrap][bootstrap], [Font Awesome][icons], and some other [wonderful tools][lib].
-The avatar and favicon design from [Clipart Max][image].
-
-Many thanks to the [contributors][contributors] who participated in the development
-and to the folks who reported bugs or shared ideas.
-
-Last but not least, thanks to [JetBrains][jetbrains] for providing the _Open Source License_.
-
-## Sponsoring
-
-If you like this project or have built something through it, please consider sponsoring it, and your support would be greatly appreciated.
-
-[![Ko-fi](https://img.shields.io/badge/Support_Me_on_Ko--fi-ff5e5b?logo=ko-fi&logoColor=white)][ko-fi]&nbsp;
-[![Wechat Pay](https://img.shields.io/badge/Support_Me_on_WeChat-brightgreen?logo=wechat&logoColor=white)][donation]&nbsp;
-[![Alipay](https://img.shields.io/badge/Support_Me_on_Alipay-blue?logo=alipay&logoColor=white)][donation]
-
-## License
-
-This project is published under [MIT License][license].
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
-[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
-[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
-[jekyllrb]: https://jekyllrb.com/
-[bootstrap]: https://getbootstrap.com/
-[icons]: https://fontawesome.com/
-[image]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[lib]: https://github.com/cotes2020/chirpy-static-assets
-[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
-[ko-fi]: https://ko-fi.com/coteschung/
-[donation]: https://sponsor.cotes.page/
+- **Project cards** — `gnn-spatial`, `geospatial`, `subsurface` are honest
+  "case study coming" stubs in `src/data/projects.js`; the AEC pipeline is fully
+  written.
+- **AEC case study → Visuals** — three labelled placeholders (floor-plan→IFC clip,
+  pipeline-stages diagram, future 3D assembly sequence). The 3D is **not** built —
+  it's planned as a react-three-fiber scene.
+- **Contact** — confirm `profile.linkedin` in `src/data/profile.js` before sharing.
+  Email + GitHub are real.
