@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom'
 import Motif from './Motif.jsx'
 import Tag from './Tag.jsx'
 
-// Whole card is one link (Brittany Chiang pattern). Live projects route
-// to their case study; "soon" projects route to a minimal stub page.
+// Live projects are a single link to their case study (Brittany Chiang
+// pattern). "Coming" projects are NDA-pending placeholder slots: not a
+// link, muted, just a title and a "Coming soon" state.
 export default function ProjectCard({ project }) {
-  const soon = project.status === 'soon'
+  if (project.status === 'coming') return <ComingCard project={project} />
+
   return (
     <Link
       to={`/projects/${project.slug}`}
@@ -15,9 +17,9 @@ export default function ProjectCard({ project }) {
       {/* geometric motif thumbnail — the signature, not a fake screenshot */}
       <div className="relative flex aspect-[16/9] items-center justify-center bg-surface">
         <Motif variant={project.motif} className="h-[62%] w-[62%]" />
-        {soon && (
+        {project.badge && (
           <span className="absolute right-3 top-3 rounded-full bg-canvas/90 px-2.5 py-1 text-[11px] font-medium text-faint shadow-sm">
-            Case study coming
+            {project.badge}
           </span>
         )}
       </div>
@@ -42,5 +44,25 @@ export default function ProjectCard({ project }) {
         </div>
       </div>
     </Link>
+  )
+}
+
+function ComingCard({ project }) {
+  return (
+    <div className="flex flex-col overflow-hidden rounded-2xl border border-line-soft bg-canvas">
+      <div className="relative flex aspect-[16/9] items-center justify-center bg-surface">
+        <Motif variant={project.motif} className="h-[62%] w-[62%] opacity-35" />
+        <span className="absolute right-3 top-3 rounded-full bg-canvas/90 px-2.5 py-1 text-[11px] font-medium text-faint shadow-sm">
+          {project.badge}
+        </span>
+      </div>
+
+      <div className="flex flex-1 flex-col gap-2 p-6">
+        <h3 className="text-[21px] font-semibold tracking-tight text-ink">
+          {project.title}
+        </h3>
+        <p className="text-[15px] text-faint">{project.note}</p>
+      </div>
+    </div>
   )
 }

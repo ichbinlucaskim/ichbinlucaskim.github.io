@@ -2,6 +2,28 @@
 // detail page at /#/projects/:slug. Add new projects as objects here.
 
 export const projects = [
+  // NDA-pending internship work. Placeholder slots only: title + a "coming"
+  // state. No descriptions, metrics, tags, links, or detail pages yet.
+  {
+    slug: 'gnn-adjacency',
+    title: 'GNN architectures for spatial adjacency prediction',
+    motif: 'graph',
+    status: 'coming',
+    badge: 'Coming soon',
+    note: 'Case study coming.',
+    tags: [],
+    caseStudy: false,
+  },
+  {
+    slug: 'generative-spatial',
+    title: 'Generative spatial model (GNN + diffusion)',
+    motif: 'contour',
+    status: 'coming',
+    badge: 'Coming soon',
+    note: 'Write-up in progress.',
+    tags: [],
+    caseStudy: false,
+  },
   {
     slug: 'aec-pipeline',
     title: 'Floorplan → structural decomposition → IFC',
@@ -12,36 +34,6 @@ export const projects = [
     status: 'live',
     links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim/floorplan-pipeline' }],
     caseStudy: true,
-  },
-  {
-    slug: 'gnn-spatial',
-    title: 'GNN spatial models',
-    summary:
-      'Graph neural networks over spatial and geometric structure. Learned representations applied where they beat hand-written rules.',
-    tags: ['GNN', 'Spatial ML', 'Research'],
-    motif: 'graph',
-    status: 'soon',
-    caseStudy: false,
-  },
-  {
-    slug: 'geospatial',
-    title: 'Geospatial modeling',
-    summary:
-      'Models over terrain and geospatial fields. Spatial ML beyond buildings.',
-    tags: ['Geospatial', 'Spatial ML'],
-    motif: 'contour',
-    status: 'soon',
-    caseStudy: false,
-  },
-  {
-    slug: 'subsurface',
-    title: 'Subsurface / geology',
-    summary:
-      'Structured models of layered subsurface data. Another domain where spatial ML and the right rules meet.',
-    tags: ['Subsurface', 'Spatial ML'],
-    motif: 'strata',
-    status: 'soon',
-    caseStudy: false,
   },
 ]
 
