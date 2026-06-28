@@ -4,8 +4,7 @@ export const profile = {
   role: 'Spatial ML Engineer',
   email: 'ichbinlucas211@gmail.com',
   github: 'https://github.com/ichbinlucaskim',
-  // TODO: confirm the real LinkedIn URL before sharing widely.
-  linkedin: 'https://www.linkedin.com/in/ichbinlucaskim',
+  linkedin: 'https://www.linkedin.com/in/ichbinlucas',
 }
 
 export const credentials = [

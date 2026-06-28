@@ -159,7 +159,7 @@ function AecCaseStudy() {
           </div>
           <div className="mt-6">
             <a
-              href="https://github.com/ichbinlucaskim"
+              href="https://github.com/ichbinlucaskim/floorplan-pipeline"
               target="_blank"
               rel="noreferrer"
               className="text-[15px] font-medium text-accent transition-colors hover:text-accent-ink"

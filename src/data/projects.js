@@ -10,7 +10,7 @@ export const projects = [
     tags: ['Spatial ML', 'Pipeline', 'IFC'],
     motif: 'plan',
     status: 'live',
-    links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim' }],
+    links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim/floorplan-pipeline' }],
     caseStudy: true,
   },
   {
