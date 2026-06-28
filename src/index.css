@@ -1,0 +1,124 @@
+@import 'tailwindcss';
+
+/* ── Design tokens ───────────────────────────────────────────────
+   Apple-clean: light canvas, near-black ink, gray secondary text,
+   hairline borders, one confident blue accent. Hierarchy comes from
+   size + weight in a single sans family, mono only for metrics. */
+@theme {
+  --color-canvas: #ffffff;
+  --color-surface: #f5f5f7; /* Apple section gray */
+  --color-surface-2: #fafafc;
+  --color-ink: #1d1d1f; /* near-black text */
+  --color-muted: #6e6e73; /* secondary text */
+  --color-faint: #86868b; /* tertiary / captions */
+  --color-line: #d2d2d7; /* hairline borders */
+  --color-line-soft: #e8e8ed;
+  --color-accent: #1564ff; /* the single accent */
+  --color-accent-ink: #0b3fb0; /* accent text on light, AA contrast */
+
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter',
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo,
+    monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset anchored scrolls below the sticky nav */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.022em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  }
+}
+
+/* ── Motion: one gentle hero reveal + edge draw ──────────────────── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw-edge {
+  from {
+    stroke-dashoffset: var(--len, 200);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.edge-draw {
+  stroke-dasharray: var(--len, 200);
+  stroke-dashoffset: var(--len, 200);
+  animation: draw-edge 1s ease-out forwards;
+}
+
+.node-pop {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-up,
+  .edge-draw,
+  .node-pop {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+}
