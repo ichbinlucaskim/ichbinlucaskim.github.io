@@ -7,8 +7,26 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/ichbinlucas',
 }
 
-export const credentials = [
-  { title: 'MS, Computer Science', note: 'GPA 3.94 · GNNs & spatial ML' },
-  { title: 'AEC-tech internship', note: 'Worked directly with IFC building models' },
-  { title: 'Google Code Next', note: 'Spatial ML · volunteer' },
-]
+// Experience leads (most recent first), then education.
+// primary = bold (linked if href), secondary = role, tertiary = small detail.
+export const credentials = {
+  experience: [
+    {
+      primary: 'Projected',
+      secondary: 'ML Engineering Intern',
+      href: 'https://projected.tech/',
+    },
+    {
+      primary: 'Google Code Next',
+      secondary: 'Spatial ML Instructor',
+      tertiary: 'Inglewood · Spatial Studio · volunteer',
+    },
+  ],
+  education: [
+    {
+      primary: 'MS, Computer Science',
+      secondary: 'Loyola Marymount University',
+      tertiary: 'GPA 3.94',
+    },
+  ],
+}

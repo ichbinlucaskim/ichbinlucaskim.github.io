@@ -98,14 +98,10 @@ export default function Home() {
               </div>
             </div>
 
-            <dl className="grid grid-cols-1 gap-px self-start overflow-hidden rounded-2xl border border-line-soft bg-line-soft sm:grid-cols-1">
-              {credentials.map((c) => (
-                <div key={c.title} className="bg-canvas p-5">
-                  <dt className="text-[16px] font-semibold text-ink">{c.title}</dt>
-                  <dd className="mt-1 text-[15px] text-muted">{c.note}</dd>
-                </div>
-              ))}
-            </dl>
+            <aside className="self-start space-y-10">
+              <CredGroup label="Experience" items={credentials.experience} />
+              <CredGroup label="Education" items={credentials.education} />
+            </aside>
           </div>
         </div>
       </section>
@@ -143,5 +139,39 @@ export default function Home() {
         </div>
       </section>
     </>
+  )
+}
+
+function CredGroup({ label, items }) {
+  return (
+    <div>
+      <p className="text-[12px] font-semibold uppercase tracking-wider text-faint">
+        {label}
+      </p>
+      <ul className="mt-4 space-y-5">
+        {items.map((it) => (
+          <li key={it.primary}>
+            <p className="text-[16px] font-semibold text-ink">
+              {it.href ? (
+                <a
+                  href={it.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors hover:text-accent"
+                >
+                  {it.primary}
+                </a>
+              ) : (
+                it.primary
+              )}
+            </p>
+            <p className="mt-0.5 text-[15px] text-muted">{it.secondary}</p>
+            {it.tertiary && (
+              <p className="mt-0.5 text-[14px] text-faint">{it.tertiary}</p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
