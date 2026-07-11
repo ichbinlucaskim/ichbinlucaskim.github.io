@@ -5,6 +5,18 @@ import { profile, credentials } from '../data/profile.js'
 import ProjectCard from '../components/ProjectCard.jsx'
 import HeroGraph from '../components/HeroGraph.jsx'
 
+// Black-to-cobalt text gradient (near-black → saturated cobalt) for the large
+// "Build Something Spatial" heading only — it has room to read there. Solid
+// #0047AB fallback (via `color`) keeps the text visible where
+// background-clip:text is unsupported — never invisible.
+const navyTextGradient = {
+  backgroundImage: 'linear-gradient(160deg, #1A1A1C 0%, #0047AB 100%)',
+  color: '#0047AB',
+  WebkitBackgroundClip: 'text',
+  backgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+}
+
 export default function Home() {
   const location = useLocation()
 
@@ -26,12 +38,13 @@ export default function Home() {
           <div className="fade-up">
             <p className="text-[14px] font-medium text-accent">{profile.role}</p>
             <h1 className="mt-3 text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
-              Spatial machine learning, engineered into production pipelines.
+              Spatial <span className="whitespace-nowrap">machine learning,</span>{' '}
+              engineered into production pipelines.
             </h1>
             <p className="mt-6 max-w-xl text-[19px] leading-relaxed text-muted">
               Models designed and trained where learning wins. Rule-based methods
               where it does not. Then the full pipeline around them, from buildings
-              to subsurface to geospatial.
+              to geospatial.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
@@ -86,12 +99,12 @@ export default function Home() {
                 <p>
                   Lucas Kim is a spatial ML engineer. He designs and trains
                   machine-learning models on spatial and geometric data, across
-                  buildings, subsurface, and geospatial domains, and builds the
+                  buildings and geospatial domains, and builds the
                   pipelines around them.
                 </p>
                 <p>
                   His background is machine learning: graph neural networks and
-                  spatial ML. The throughline is judgment. Knowing where a learned
+                  spatial ML. The common thread is judgment: knowing where a learned
                   model wins, and where a rule-based or deterministic approach is
                   simpler, auditable, and correct.
                 </p>
@@ -109,7 +122,12 @@ export default function Home() {
       {/* ── Contact ── */}
       <section id="contact" className="scroll-mt-24 bg-surface py-28 sm:py-36">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight text-ink">
+          {/* Black-to-cobalt text-gradient (see navyTextGradient), solid
+              #0047AB fallback. The only heading that carries it. */}
+          <h2
+            className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight text-accent"
+            style={navyTextGradient}
+          >
             Build Something Spatial
           </h2>
           <div className="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
@@ -120,20 +138,20 @@ export default function Home() {
               {profile.email}
             </a>
             <a
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-              className="text-[17px] font-medium text-ink transition-colors hover:text-accent"
-            >
-              GitHub
-            </a>
-            <a
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
               className="text-[17px] font-medium text-ink transition-colors hover:text-accent"
             >
               LinkedIn
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[17px] font-medium text-ink transition-colors hover:text-accent"
+            >
+              GitHub
             </a>
           </div>
         </div>
@@ -157,7 +175,7 @@ function CredGroup({ label, items }) {
                   href={it.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors hover:text-accent"
+                  className="underline-offset-2 transition-colors hover:text-accent hover:underline"
                 >
                   {it.primary}
                 </a>

@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getProject, aecCaseStudy } from '../data/projects.js'
 import SectionNav from '../components/SectionNav.jsx'
 import Motif from '../components/Motif.jsx'
 import Tag from '../components/Tag.jsx'
+import CaseStudy from '../components/CaseStudy.jsx'
 
 export default function Project() {
   const { slug } = useParams()
@@ -29,7 +31,7 @@ export default function Project() {
               href={l.href}
               target="_blank"
               rel="noreferrer"
-              className="ml-1 text-[14px] font-medium text-accent transition-colors hover:text-accent-ink"
+              className="ml-1 text-[14px] font-medium text-accent underline-offset-2 transition-colors hover:text-accent-ink hover:underline"
             >
               {l.label} ↗
             </a>
@@ -37,7 +39,13 @@ export default function Project() {
         </div>
       </header>
 
-      {project.caseStudy ? <AecCaseStudy /> : <ComingSoon />}
+      {project.study ? (
+        <CaseStudy data={project.study} />
+      ) : project.caseStudy ? (
+        <AecCaseStudy />
+      ) : (
+        <ComingSoon />
+      )}
     </article>
   )
 }
@@ -46,37 +54,39 @@ function AecCaseStudy() {
   const cs = aecCaseStudy
   return (
     <div className="mt-12 grid gap-10 lg:grid-cols-[180px_1fr] lg:gap-14">
-      <aside className="lg:col-start-1">
+      <aside className="min-w-0 lg:col-start-1">
         <SectionNav sections={cs.sections} />
       </aside>
 
       <div className="min-w-0 space-y-16">
         <Section id="overview" title="Overview">
           <p>
-            A modular pipeline that turns a residential floor plan into
-            manufacturing-ready building data. It reads the plan, reconstructs walls
-            and openings, decomposes them into transport-ready panels, synthesizes
-            light-wood framing, and exports a validated IFC4 model with a buildable
-            assembly sequence. Structured, machine-readable output a factory or
-            robotic cell can act on. No Revit required.
+            A seven-package pipeline, six processing stages plus the shared schema
+            that links them, turns a 2D residential floor plan into a validated,
+            machine-readable building model a factory can act on. It reads the raw
+            ResPlan room polygons, reconstructs walls and openings, splits them into
+            transport-legal panels, synthesizes code-prescriptive light-wood framing,
+            resolves a build order, and exports a validated IFC4 model. Every stage is
+            deterministic geometry or rules. No learned model ships anywhere in the
+            pipeline, by design.
           </p>
         </Section>
 
         <Section id="problem" title="The problem">
           <p>
-            A floor plan is drawn for people, not machines. Turning it into something
-            a factory can build takes precise geometry, thousands of small
-            code-compliant decisions, and output a downstream system can trust.
-            Repeatably. Across very different plans. With zero tolerance for invalid
-            building models.
+            A floor plan is drawn for people, not machines. Turning one into something
+            a factory can build takes exact geometry, thousands of small code-compliant
+            decisions, and output a downstream system can trust: repeatably, across
+            very different plans, with zero tolerance for an invalid building model. The
+            hard part is choosing which technique each step actually deserves.
           </p>
         </Section>
 
         <Section id="approach" title="Approach">
           <p className="mb-6">
-            The pipeline runs as six independent, schema-linked stages. Every seam is
-            a JSON contract, validated in-flight, so a plan can be checked and
-            debugged at every step.
+            The pipeline runs as six schema-linked stages. Every seam is a JSON contract
+            validated in flight against a draft-2020-12 schema, so any plan can be
+            inspected and debugged at each step.
           </p>
           <ol className="grid gap-px overflow-hidden rounded-xl border border-line-soft bg-line-soft sm:grid-cols-5">
             {cs.stages.map((s) => (
@@ -87,12 +97,26 @@ function AecCaseStudy() {
               </li>
             ))}
           </ol>
+          <p className="mt-6">
+            Geometry comes straight from the room polygons. Walls are recovered by
+            enumerating each room's exterior-ring edges and de-duplicating the shared
+            ones: interior walls appear in two rooms, envelope walls in one. ResPlan
+            also ships a room-connectivity graph, but its edges carry no coordinates, so
+            it cannot place a wall or a door; the cheap, direct route was the correct
+            one. The only place a heavier graph earns its weight is build order, handled
+            with a small precedence DAG. Sequence optimization and collision checking
+            are the problems that would justify heavier graph work, and both are
+            deliberately deferred to a stage that would need real factory data to exist.
+            They are left unbuilt rather than faked.
+          </p>
         </Section>
 
         <Section id="judgment" title="Where ML fits vs rule-based">
           <p className="mb-6">
-            The real decisions are about which tool each sub-problem deserves. ML is a
-            means here, not the goal.
+            This pipeline ships no learned model. Each sub-problem here is better served
+            by rules or deterministic computation than by a model: simpler, auditable,
+            and correct. The judgment is knowing where that holds, and where a model
+            would and would not pay off.
           </p>
           <div className="grid gap-px overflow-hidden rounded-xl border border-line-soft bg-line-soft md:grid-cols-3">
             {cs.judgment.map((j) => (
@@ -121,32 +145,20 @@ function AecCaseStudy() {
             ))}
           </div>
           <p className="mt-4 text-[14px] text-faint">
-            Real ResPlan floor plans. CI is green across all 7 repositories.
+            Numbers from plan-008557, a real ResPlan plan taken end to end. The pipeline
+            validates its own output at every seam, and the exported IFC4 passes
+            ifcopenshell validation with zero errors. Three plans are run end-to-end in
+            the repo; the source corpus holds roughly 17,000.
           </p>
         </Section>
 
         <Section id="visuals" title="Visuals">
           <p className="mb-6">
-            Placeholders below mark where real media drops in. Each uses the project's
-            geometric motif until the asset is ready.
+            Two static renders of one real plan, plan-008557, taken through the pipeline.
           </p>
           <div className="space-y-5">
             {cs.visuals.map((v) => (
-              <figure
-                key={v.label}
-                className="overflow-hidden rounded-2xl border border-line-soft bg-surface"
-              >
-                <div className="flex aspect-[16/9] items-center justify-center">
-                  <Motif variant={v.motif} className="h-[42%] w-[42%] opacity-70" />
-                </div>
-                <figcaption className="flex flex-col gap-1 border-t border-line-soft bg-canvas px-5 py-4">
-                  <span className="text-[15px] font-semibold text-ink">
-                    {v.label}{' '}
-                    <span className="font-normal text-faint">(coming)</span>
-                  </span>
-                  <span className="text-[14px] text-muted">{v.note}</span>
-                </figcaption>
-              </figure>
+              <VisualFigure key={v.label} v={v} />
             ))}
           </div>
         </Section>
@@ -162,7 +174,7 @@ function AecCaseStudy() {
               href="https://github.com/ichbinlucaskim/floorplan-pipeline"
               target="_blank"
               rel="noreferrer"
-              className="text-[15px] font-medium text-accent transition-colors hover:text-accent-ink"
+              className="text-[15px] font-medium text-accent underline-offset-2 transition-colors hover:text-accent-ink hover:underline"
             >
               View the repositories ↗
             </a>
@@ -195,6 +207,39 @@ function Metric({ value, label }) {
   )
 }
 
+// A visual slot. Renders the real image once its file exists at v.src; until
+// then (or if it fails to load) it falls back to the project motif with a
+// "(coming)" tag. Drop a file at public/<v.src> to fill the slot.
+function VisualFigure({ v }) {
+  const [failed, setFailed] = useState(false)
+  const showImg = v.src && !failed
+  return (
+    <figure className="overflow-hidden rounded-2xl border border-line-soft bg-surface">
+      {showImg ? (
+        <div className="aspect-[16/9] bg-surface">
+          <img
+            src={v.src}
+            alt={v.label}
+            onError={() => setFailed(true)}
+            className="h-full w-full object-contain"
+          />
+        </div>
+      ) : (
+        <div className="flex aspect-[16/9] items-center justify-center">
+          <Motif variant={v.motif} className="h-[42%] w-[42%] opacity-70" />
+        </div>
+      )}
+      <figcaption className="flex flex-col gap-1 border-t border-line-soft bg-canvas px-5 py-4">
+        <span className="text-[15px] font-semibold text-ink">
+          {v.label}
+          {!showImg && <span className="font-normal text-faint"> (coming)</span>}
+        </span>
+        <span className="text-[14px] text-muted">{v.note}</span>
+      </figcaption>
+    </figure>
+  )
+}
+
 function ComingSoon() {
   return (
     <div className="mt-12 rounded-2xl border border-line-soft bg-surface p-10 text-center">
@@ -206,7 +251,7 @@ function ComingSoon() {
       <Link
         to="/projects/aec-pipeline"
         onClick={() => window.scrollTo({ top: 0 })}
-        className="mt-6 inline-block text-[15px] font-medium text-accent hover:text-accent-ink"
+        className="mt-6 inline-block text-[15px] font-medium text-accent underline-offset-2 hover:text-accent-ink hover:underline"
       >
         Read the flagship case study →
       </Link>
@@ -230,7 +275,7 @@ function NotFound() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-24 text-center">
       <h1 className="text-3xl font-semibold text-ink">Project not found</h1>
-      <Link to="/" className="mt-4 inline-block text-accent hover:text-accent-ink">
+      <Link to="/" className="mt-4 inline-block text-accent underline-offset-2 hover:text-accent-ink hover:underline">
         ← Back to work
       </Link>
     </div>

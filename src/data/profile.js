@@ -14,6 +14,7 @@ export const credentials = {
     {
       primary: 'Projected',
       secondary: 'ML Engineering Intern',
+      tertiary: 'Berlin · Floorplan Generation Pipeline (GNN) · on-site',
       href: 'https://projected.tech/',
     },
     {
