@@ -9,11 +9,11 @@ export default function Footer() {
           <a href={`mailto:${profile.email}`} className="transition-colors hover:text-ink">
             Email
           </a>
-          <a href={profile.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-ink">
-            GitHub
-          </a>
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-ink">
             LinkedIn
+          </a>
+          <a href={profile.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-ink">
+            GitHub
           </a>
         </div>
       </div>
