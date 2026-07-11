@@ -75,13 +75,8 @@ const osmCaseStudy = {
       id: 'visuals',
       title: 'Visuals',
       type: 'visuals',
-      lead: 'Placeholders below mark where real media drops in. Each uses the project geometric motif until the asset is ready.',
+      lead: 'Drawn from the committed AUC and Hits@20 table in the repository.',
       items: [
-        {
-          label: 'phased pipeline diagram',
-          note: 'The pipeline flow from OSM through the gate, leakage-safe split, and features to GraphSAGE, drawn as one annotated figure. The repository already carries this as an ASCII map; it is the render candidate. ~16:9.',
-          motif: 'roads',
-        },
         {
           label: 'baseline comparison',
           note: 'On AUC, GraphSAGE and SEAL / DRNL tie; on ranking (Hits@20) the domain feature plus GraphSAGE beats the heavier SEAL / DRNL. Committed table in the repository.',
@@ -184,7 +179,7 @@ const mcpCaseStudy = {
       id: 'visuals',
       title: 'Visuals',
       type: 'visuals',
-      lead: 'Placeholders below mark where real media drops in. Each uses the project graph motif until the asset is ready.',
+      lead: 'Charts drawn from the committed evaluation numbers (README and the collapse write-up).',
       items: [
         {
           label: 'baseline vs GNN comparison',
@@ -329,19 +324,16 @@ export const aecCaseStudy = {
 
   visuals: [
     {
-      label: 'floor plan to IFC walkthrough',
-      note: 'One plan animated through the six stages, ending in the IFC4 model. ~16:9.',
+      label: 'the exported IFC4 model',
+      note: 'The pipeline output for plan-008557, opened as a 3D IFC4 model. The highlighted wall is the one decomposed into its 18 framing members in the build-order render below.',
       motif: 'plan',
+      src: '/aec/ifc-model.png',
     },
     {
-      label: 'pipeline-stages diagram',
-      note: 'Walls, panels, framing, sequence, and IFC drawn as one annotated figure.',
-      motif: 'graph',
-    },
-    {
-      label: 'assembly sequence, stepped through',
-      note: 'The framing assembling in build order. Planned as a react-three-fiber scene; not yet built.',
+      label: 'framing assembly order',
+      note: 'Wall-018 from that model, its 18 framing members colored and numbered by build order from the assembly-sequence stage. The order follows how the panel is actually built: flat on the table, plates down first, studs nailed through them.',
       motif: 'strata',
+      src: '/aec/assembly-order.png',
     },
   ],
 

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getProject, aecCaseStudy } from '../data/projects.js'
 import SectionNav from '../components/SectionNav.jsx'
@@ -153,26 +154,11 @@ function AecCaseStudy() {
 
         <Section id="visuals" title="Visuals">
           <p className="mb-6">
-            Placeholders below mark where real media drops in. Each uses the project's
-            geometric motif until the asset is ready.
+            Two static renders of one real plan, plan-008557, taken through the pipeline.
           </p>
           <div className="space-y-5">
             {cs.visuals.map((v) => (
-              <figure
-                key={v.label}
-                className="overflow-hidden rounded-2xl border border-line-soft bg-surface"
-              >
-                <div className="flex aspect-[16/9] items-center justify-center">
-                  <Motif variant={v.motif} className="h-[42%] w-[42%] opacity-70" />
-                </div>
-                <figcaption className="flex flex-col gap-1 border-t border-line-soft bg-canvas px-5 py-4">
-                  <span className="text-[15px] font-semibold text-ink">
-                    {v.label}{' '}
-                    <span className="font-normal text-faint">(coming)</span>
-                  </span>
-                  <span className="text-[14px] text-muted">{v.note}</span>
-                </figcaption>
-              </figure>
+              <VisualFigure key={v.label} v={v} />
             ))}
           </div>
         </Section>
@@ -218,6 +204,39 @@ function Metric({ value, label }) {
       </div>
       <div className="mt-1 text-[13px] text-muted">{label}</div>
     </div>
+  )
+}
+
+// A visual slot. Renders the real image once its file exists at v.src; until
+// then (or if it fails to load) it falls back to the project motif with a
+// "(coming)" tag. Drop a file at public/<v.src> to fill the slot.
+function VisualFigure({ v }) {
+  const [failed, setFailed] = useState(false)
+  const showImg = v.src && !failed
+  return (
+    <figure className="overflow-hidden rounded-2xl border border-line-soft bg-surface">
+      {showImg ? (
+        <div className="aspect-[16/9] bg-surface">
+          <img
+            src={v.src}
+            alt={v.label}
+            onError={() => setFailed(true)}
+            className="h-full w-full object-contain"
+          />
+        </div>
+      ) : (
+        <div className="flex aspect-[16/9] items-center justify-center">
+          <Motif variant={v.motif} className="h-[42%] w-[42%] opacity-70" />
+        </div>
+      )}
+      <figcaption className="flex flex-col gap-1 border-t border-line-soft bg-canvas px-5 py-4">
+        <span className="text-[15px] font-semibold text-ink">
+          {v.label}
+          {!showImg && <span className="font-normal text-faint"> (coming)</span>}
+        </span>
+        <span className="text-[14px] text-muted">{v.note}</span>
+      </figcaption>
+    </figure>
   )
 }
 
