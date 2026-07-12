@@ -244,28 +244,6 @@ export const projects = [
     caseStudy: true,
     study: mcpCaseStudy,
   },
-  // NDA-pending internship work. Placeholder slots only: title + a "coming"
-  // state. No descriptions, metrics, tags, links, or detail pages yet.
-  {
-    slug: 'gnn-adjacency',
-    title: 'GNN architectures for spatial adjacency prediction',
-    motif: 'graph',
-    status: 'coming',
-    badge: 'Coming soon',
-    note: 'Case study coming.',
-    tags: [],
-    caseStudy: false,
-  },
-  {
-    slug: 'generative-spatial',
-    title: 'Generative spatial model (GNN + diffusion)',
-    motif: 'contour',
-    status: 'coming',
-    badge: 'Coming soon',
-    note: 'Write-up in progress.',
-    tags: [],
-    caseStudy: false,
-  },
 ]
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)
