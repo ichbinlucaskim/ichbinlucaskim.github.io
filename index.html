@@ -1,6 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- SPA on GitHub Pages: decode the path preserved by 404.html, then rewrite
+         any legacy #/… hash link to the clean path. Both run before the app so
+         BrowserRouter sees the correct path. https://github.com/rafgraph/spa-github-pages -->
+    <script type="text/javascript">
+      // 1) Decode the path that 404.html encoded into `/?/…`.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) { return s.replace(/~and~/g, '&') })
+            .join('?')
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash)
+        }
+      })(window.location);
+      // 2) Back-compat: rewrite a legacy HashRouter URL (#/path) to a clean path.
+      (function (l) {
+        if (l.hash.indexOf('#/') === 0) {
+          window.history.replaceState(null, null, l.pathname.replace(/\/$/, '') + l.hash.slice(1))
+        }
+      })(window.location);
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
