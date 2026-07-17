@@ -38,13 +38,13 @@ export default function Home() {
           <div className="fade-up">
             <p className="text-[14px] font-medium text-accent">{profile.role}</p>
             <h1 className="mt-3 text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
-              Spatial <span className="whitespace-nowrap">machine learning,</span>{' '}
+              Graph <span className="whitespace-nowrap">machine learning,</span>{' '}
               engineered into production pipelines.
             </h1>
             <p className="mt-6 max-w-xl text-[19px] leading-relaxed text-muted">
               Models designed and trained where learning wins. Rule-based methods
-              where it does not. Then the full pipeline around them, from buildings
-              to geospatial.
+              where it does not. Then the full pipeline around them, across both
+              data and systems.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
@@ -97,16 +97,15 @@ export default function Home() {
               </h2>
               <div className="mt-5 space-y-4 text-[19px] leading-relaxed text-muted">
                 <p>
-                  Lucas Kim is a spatial ML engineer. He designs and trains
-                  machine-learning models on spatial and geometric data, across
-                  buildings and geospatial domains, and builds the
-                  pipelines around them.
+                  Lucas Kim is a graph ML engineer. He understands the world
+                  through graph structure, and has applied it across spatial and
+                  AEC domains. The common thread is judgment: knowing where a
+                  learned model wins, and where a rule-based or deterministic
+                  approach is simpler, auditable, and correct.
                 </p>
                 <p>
-                  His background is machine learning: graph neural networks and
-                  spatial ML. The common thread is judgment: knowing where a learned
-                  model wins, and where a rule-based or deterministic approach is
-                  simpler, auditable, and correct.
+                  Most recently, he has been extending graph methods into agentic
+                  AI, exploring how GNNs can be applied to MCP and RAG.
                 </p>
               </div>
             </div>
