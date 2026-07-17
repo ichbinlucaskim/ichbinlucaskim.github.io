@@ -6,7 +6,7 @@ import ProjectCard from '../components/ProjectCard.jsx'
 import HeroGraph from '../components/HeroGraph.jsx'
 
 // Black-to-cobalt text gradient (near-black → saturated cobalt) for the large
-// "Build Something Spatial" heading only — it has room to read there. Solid
+// "Think in Graphs" heading only — it has room to read there. Solid
 // #0047AB fallback (via `color`) keeps the text visible where
 // background-clip:text is unsupported — never invisible.
 const navyTextGradient = {
@@ -127,7 +127,7 @@ export default function Home() {
             className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight text-accent"
             style={navyTextGradient}
           >
-            Build Something Spatial
+            Think in Graphs
           </h2>
           <div className="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
             <a
