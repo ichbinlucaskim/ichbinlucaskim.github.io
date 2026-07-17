@@ -1,7 +1,7 @@
 // Profile + contact. Edit links here.
 export const profile = {
   name: 'Lucas Kim',
-  role: 'Spatial ML Engineer',
+  role: 'Graph ML Engineer',
   email: 'ichbinlucas211@gmail.com',
   github: 'https://github.com/ichbinlucaskim',
   linkedin: 'https://www.linkedin.com/in/ichbinlucas',
