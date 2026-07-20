@@ -36,6 +36,16 @@ const practice = [
     title: 'Reproducible, versioned evaluation harnesses',
     body: 'Seed-pinned, dataset-pinned to an upstream commit, one-command re-run.',
   },
+  {
+    title: 'Code review through open-source contribution',
+    body: 'Two merged pull requests to NVIDIA NeMo Guardrails, each documenting the alternatives considered and why one was chosen. Maintainer review on both.',
+    // Spans both columns so the fifth item does not leave an empty grid cell.
+    wide: true,
+    links: [
+      { label: 'PR #1611', href: 'https://github.com/NVIDIA-NeMo/Guardrails/pull/1611' },
+      { label: 'PR #1610', href: 'https://github.com/NVIDIA-NeMo/Guardrails/pull/1610' },
+    ],
+  },
 ]
 
 export default function Home() {
@@ -156,11 +166,29 @@ export default function Home() {
           </p>
           <dl className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line-soft bg-line-soft sm:grid-cols-2">
             {practice.map((it) => (
-              <div key={it.title} className="bg-canvas p-6">
+              <div
+                key={it.title}
+                className={`bg-canvas p-6${it.wide ? ' sm:col-span-2' : ''}`}
+              >
                 <dt className="text-[16px] font-semibold text-ink">{it.title}</dt>
                 <dd className="mt-2 text-[14px] leading-relaxed text-muted">
                   {it.body}
                 </dd>
+                {it.links && (
+                  <div className="mt-3 flex flex-wrap gap-4">
+                    {it.links.map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[13px] font-medium text-accent underline-offset-2 transition-colors hover:text-accent-ink hover:underline"
+                      >
+                        {l.label} ↗
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </dl>

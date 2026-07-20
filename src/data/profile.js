@@ -22,6 +22,12 @@ export const credentials = {
       secondary: 'Spatial ML Instructor',
       tertiary: 'Inglewood · Spatial Studio · volunteer',
     },
+    {
+      primary: 'NVIDIA NeMo Guardrails',
+      secondary: 'Open Source Contributor',
+      tertiary: 'Two merged PRs · library integration · CI diagnosis',
+      href: 'https://github.com/NVIDIA-NeMo/Guardrails/pulls?q=is%3Apr+author%3Aichbinlucaskim+is%3Amerged',
+    },
   ],
   education: [
     {
