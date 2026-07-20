@@ -109,6 +109,15 @@ function AecCaseStudy() {
             deliberately deferred to a stage that would need real factory data to exist.
             They are left unbuilt rather than faked.
           </p>
+          <p className="mt-6">
+            Each stage is its own repository, independently versioned and swappable. The
+            contract between them is pinned as a shared JSON schema rather than as shared
+            code, so a stage can change internally as long as it still honours the schema.
+            CI resolves the pinned sibling repositories on every push and runs the
+            end-to-end integration across all seven, so a contract break fails at the seam,
+            not in production. That cross-boundary check is free in a monorepo; a polyrepo
+            has to build it.
+          </p>
         </Section>
 
         <Section id="judgment" title="Where ML fits vs rule-based">
@@ -132,23 +141,30 @@ function AecCaseStudy() {
         </Section>
 
         <Section id="results" title="Results">
-          <p className="mb-2 text-[14px] font-medium text-faint">Example hero plan</p>
+          <p className="mb-2 text-[14px] font-medium text-faint">
+            One real plan · plan-008557
+          </p>
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line-soft bg-line-soft sm:grid-cols-4">
             {cs.planMetrics.map((m) => (
               <Metric key={m.label} {...m} />
             ))}
           </div>
-          <p className="mb-2 mt-6 text-[14px] font-medium text-faint">Engineering</p>
+          <p className="mb-2 mt-6 text-[14px] font-medium text-faint">
+            Engineering · repo-wide
+          </p>
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line-soft bg-line-soft sm:grid-cols-3">
             {cs.engMetrics.map((m) => (
               <Metric key={m.label} {...m} />
             ))}
           </div>
           <p className="mt-4 text-[14px] text-faint">
-            Numbers from plan-008557, a real ResPlan plan taken end to end. The pipeline
-            validates its own output at every seam, and the exported IFC4 passes
-            ifcopenshell validation with zero errors. Three plans are run end-to-end in
-            the repo; the source corpus holds roughly 17,000.
+            The four plan metrics are from plan-008557, one real ResPlan plan taken end
+            to end; its ResPlan input is not committed (dataset licensing), so those
+            figures are verified but reproduced from local data, not from the repo alone.
+            The engineering metrics are repo-wide: 215 tests and the six-schema contract
+            across all seven packages, enforced by CI on every push. A committed demo plan
+            is exercised end to end by a golden test, and its exported IFC4 passes
+            ifcopenshell validation with zero errors.
           </p>
         </Section>
 

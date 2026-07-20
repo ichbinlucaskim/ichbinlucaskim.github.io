@@ -172,7 +172,7 @@ const mcpCaseStudy = {
       type: 'prose',
       paragraphs: [
         'The question is cleanly answerable, and that is what makes the negative result stand. Strong baselines (BM25, dense retrieval, fusion, and graph traversal) make "does the GNN actually beat retrieval" a decidable question rather than a hope.',
-        'The finding is audited, not hand-waved: 200 tests, 31 architecture decision records written before the code, and an expected-failure test that encodes the collapse and would flip the moment a change lifts GNN completion off the floor.',
+        'The finding is audited, not hand-waved: 213 tests, 31 architecture decision records written before the code, and an expected-failure test that encodes the collapse and would flip the moment a change lifts GNN completion off the floor.',
       ],
     },
     {
@@ -213,8 +213,9 @@ export const projects = [
     slug: 'osm-link-inference',
     title: 'GNN link prediction for missing OpenStreetMap roads',
     summary:
-      'Edge-level link prediction over city road graphs: given two intersections, infer whether a road should connect them. Distance-matched negatives and a leakage-safe message/supervision split keep the evaluation honest; deterministic rules and human review sit downstream of the model.',
-    tags: ['GNN', 'Link prediction', 'PyTorch Geometric', 'Geospatial'],
+      'Leakage-safe link-prediction pipeline over city road graphs, built as validated stages behind JSON-schema contracts. A distance-matched-negative sampler and a spatial (not random) holdout keep the evaluation honest; a domain feature (stretch) plus GraphSAGE beats heavier SEAL/DRNL on ranking. Determinism and the leakage firewall are enforced by tests, not convention.',
+    tags: ['GNN', 'PyTorch Geometric', 'Geospatial', 'Testing', 'CI', 'Reproducibility', 'ADR'],
+    metric: '109 tests · 26 ADRs · 5 schema contracts · seed-pinned, one-command reproduce',
     motif: 'roads',
     status: 'live',
     links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim/osm-link-inference' }],
@@ -223,21 +224,25 @@ export const projects = [
   },
   {
     slug: 'aec-pipeline',
-    title: 'Floorplan → structural decomposition → IFC',
+    title: 'Floorplan → framing → IFC: a 7-package prefab pipeline',
     summary:
-      'Floor plans become manufacturing-ready building data for panelized prefab. Structural decomposition into walls, panels, and building-code framing, exported as validated IFC.',
-    tags: ['Geometry', 'Pipeline', 'IFC'],
+      'A room polygon becomes manufacturing-ready building data: walls, transport panels, code-compliant light-wood framing, assembly sequence, and a valid IFC4 model, no Revit. Framing follows prescriptive code tables and sequence is a deterministic topological sort, rule-based where rules are correct, by design. Built as seven independent, schema-linked packages. Each stage validates its input and output against a shared JSON contract, and polyrepo CI checks out pinned siblings on every push so the contract is verified across repository boundaries, not just inside one.',
+    tags: ['Pipeline', 'IFC', 'CI', 'Testing', 'Contracts', 'ADR'],
+    metric: '7 packages · 215 tests · polyrepo CI across all seven · 0 IFC validation errors',
     motif: 'plan',
     status: 'live',
-    links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim/floorplan-pipeline' }],
+    links: [
+      { label: 'GitHub · 7-repo polyrepo (orchestrator)', href: 'https://github.com/ichbinlucaskim/floorplan-pipeline' },
+    ],
     caseStudy: true,
   },
   {
     slug: 'mcp-router-eval',
     title: 'Does a GNN beat retrieval for MCP tool routing?',
     summary:
-      'A controlled harness that frames MCP tool routing as ranking over a tool graph and asks whether a GNN beats retrieval baselines. It does not. Dense retrieval wins. The result is an audited negative finding and a diagnosis of why the GNN collapses.',
-    tags: ['GNN', 'Evaluation', 'MCP', 'Ranking'],
+      'A controlled harness benchmarking five routers behind one byte-identical contract layer, so the comparison isolates ranking quality and nothing else. The answer is an audited negative result: dense retrieval wins, the GNN collapses. A strict xfail test locks it and flips the moment a fix lands. Every decision is an ADR; every run is seed-pinned and re-runnable.',
+    tags: ['Evaluation', 'GNN', 'MCP', 'Testing', 'CI', 'Reproducibility', 'ADR'],
+    metric: '213 tests · 31 ADRs · 5 routers / 1 contract · mean over 5 seeds',
     motif: 'router',
     status: 'live',
     links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim/mcp-router-eval' }],

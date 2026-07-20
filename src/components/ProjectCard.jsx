@@ -14,7 +14,7 @@ export default function ProjectCard({ project }) {
       onClick={() => window.scrollTo({ top: 0 })}
       className="group flex flex-col overflow-hidden rounded-2xl border border-line-soft bg-canvas transition-all duration-300 hover:-translate-y-1 hover:border-line hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.18)] focus-visible:-translate-y-1"
     >
-      {/* geometric motif thumbnail — the signature, not a fake screenshot */}
+      {/* geometric motif thumbnail, the signature, not a fake screenshot */}
       <div className="relative flex aspect-[16/9] items-center justify-center bg-surface">
         <Motif variant={project.motif} className="h-[62%] w-[62%]" />
         {project.badge && (
@@ -37,7 +37,12 @@ export default function ProjectCard({ project }) {
           </span>
         </div>
         <p className="text-[15px] leading-relaxed text-muted">{project.summary}</p>
-        <div className="mt-auto flex flex-wrap gap-2 pt-2">
+        {project.metric && (
+          <p className="mt-auto pt-2 font-mono text-[12.5px] leading-relaxed text-faint">
+            {project.metric}
+          </p>
+        )}
+        <div className={`flex flex-wrap gap-2 pt-2${project.metric ? '' : ' mt-auto'}`}>
           {project.tags.map((t) => (
             <Tag key={t}>{t}</Tag>
           ))}
