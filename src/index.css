@@ -13,8 +13,8 @@
   --color-faint: #86868b; /* tertiary / captions */
   --color-line: #d2d2d7; /* hairline borders */
   --color-line-soft: #e8e8ed;
-  --color-accent: #1b3a6b; /* deep navy — the single accent */
-  --color-accent-ink: #0e2450; /* darker navy — hover / AA text on light */
+  --color-accent: #1b3a6b; /* deep navy, the single accent */
+  --color-accent-ink: #0e2450; /* darker navy, hover / AA text on light */
 
   --font-sans:
     -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter',

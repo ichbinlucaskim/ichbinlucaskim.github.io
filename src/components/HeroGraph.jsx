@@ -1,6 +1,6 @@
 // The hero's one orchestrated motion: a small spatial node-graph whose
 // edges draw in once on load, then nodes pop. Reduced-motion shows it
-// static. Decorative — hidden from assistive tech.
+// static. Decorative, hidden from assistive tech.
 
 const nodes = [
   [60, 50], [140, 30], [210, 70], [95, 120], [180, 140], [40, 150], [250, 120],

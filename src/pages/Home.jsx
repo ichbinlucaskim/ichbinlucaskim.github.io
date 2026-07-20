@@ -6,9 +6,9 @@ import ProjectCard from '../components/ProjectCard.jsx'
 import HeroGraph from '../components/HeroGraph.jsx'
 
 // Black-to-cobalt text gradient (near-black → saturated cobalt) for the large
-// "Think in Systems" heading only — it has room to read there. Solid
+// "Think in Systems" heading only, it has room to read there. Solid
 // #0047AB fallback (via `color`) keeps the text visible where
-// background-clip:text is unsupported — never invisible.
+// background-clip:text is unsupported, never invisible.
 const navyTextGradient = {
   backgroundImage: 'linear-gradient(160deg, #1A1A1C 0%, #0047AB 100%)',
   color: '#0047AB',
@@ -22,7 +22,7 @@ const navyTextGradient = {
 const practice = [
   {
     title: 'Architecture decision records for non-obvious choices',
-    body: 'About 88 documented decisions across the portfolio — 65 formal numbered ADRs plus 23 consolidated log entries — written before the code they govern, with supersede-not-delete discipline.',
+    body: 'About 88 documented decisions across the portfolio, 65 formal numbered ADRs plus 23 consolidated log entries, written before the code they govern, with supersede-not-delete discipline.',
   },
   {
     title: 'Honest assumptions and audited negative results',
@@ -165,7 +165,7 @@ export default function Home() {
             ))}
           </dl>
           <p className="mt-6 text-[14px] leading-relaxed text-faint">
-            CI runs on every push across all nine repositories — ruff lint and
+            CI runs on every push across all nine repositories: ruff lint and
             tests on each commit, with strict mypy type-checking where it is
             configured. The gate differs by repo, not the fact of it.
           </p>

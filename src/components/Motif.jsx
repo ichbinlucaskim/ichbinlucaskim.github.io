@@ -1,5 +1,5 @@
 // Signature element: minimal geometric line-art, one per domain.
-// Replaces fake screenshots — each motif nods to the project's real
+// Replaces fake screenshots, each motif nods to the project's real
 // subject (spatial / geometric). Monochrome line + single accent.
 
 const line = 'var(--color-line)'

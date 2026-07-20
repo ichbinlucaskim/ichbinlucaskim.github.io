@@ -226,7 +226,7 @@ export const projects = [
     slug: 'aec-pipeline',
     title: 'Floorplan → framing → IFC: a 7-package prefab pipeline',
     summary:
-      'A room polygon becomes manufacturing-ready building data — walls, transport panels, code-compliant light-wood framing, assembly sequence, and a valid IFC4 model, no Revit. Framing follows prescriptive code tables and sequence is a deterministic topological sort — rule-based where rules are correct, by design. Built as seven independent, schema-linked packages. Each stage validates its input and output against a shared JSON contract, and polyrepo CI checks out pinned siblings on every push so the contract is verified across repository boundaries, not just inside one.',
+      'A room polygon becomes manufacturing-ready building data: walls, transport panels, code-compliant light-wood framing, assembly sequence, and a valid IFC4 model, no Revit. Framing follows prescriptive code tables and sequence is a deterministic topological sort, rule-based where rules are correct, by design. Built as seven independent, schema-linked packages. Each stage validates its input and output against a shared JSON contract, and polyrepo CI checks out pinned siblings on every push so the contract is verified across repository boundaries, not just inside one.',
     tags: ['Pipeline', 'IFC', 'CI', 'Testing', 'Contracts', 'ADR'],
     metric: '7 packages · 215 tests · polyrepo CI across all seven · 0 IFC validation errors',
     motif: 'plan',
@@ -240,7 +240,7 @@ export const projects = [
     slug: 'mcp-router-eval',
     title: 'Does a GNN beat retrieval for MCP tool routing?',
     summary:
-      'A controlled harness benchmarking five routers behind one byte-identical contract layer, so the comparison isolates ranking quality and nothing else. The answer is an audited negative result — dense retrieval wins, the GNN collapses — locked by a strict xfail test that flips the moment a fix lands. Every decision is an ADR; every run is seed-pinned and re-runnable.',
+      'A controlled harness benchmarking five routers behind one byte-identical contract layer, so the comparison isolates ranking quality and nothing else. The answer is an audited negative result: dense retrieval wins, the GNN collapses. A strict xfail test locks it and flips the moment a fix lands. Every decision is an ADR; every run is seed-pinned and re-runnable.',
     tags: ['Evaluation', 'GNN', 'MCP', 'Testing', 'CI', 'Reproducibility', 'ADR'],
     metric: '213 tests · 31 ADRs · 5 routers / 1 contract · mean over 5 seeds',
     motif: 'router',

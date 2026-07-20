@@ -2,8 +2,8 @@
 // the site's design tokens. Every number traces to a committed source, cited
 // per chart. Rendered inside the existing <figure> slots by CaseStudy.jsx.
 
-const ACCENT = 'var(--color-accent)' // #1b3a6b deep navy — series 1 (Calgary / NaiveRAG), the subject
-const ACCENT_2 = '#808080' //            pure neutral gray — series 2 (Edmonton / GNN), the comparison
+const ACCENT = 'var(--color-accent)' // #1b3a6b deep navy, series 1 (Calgary / NaiveRAG), the subject
+const ACCENT_2 = '#808080' //            pure neutral gray, series 2 (Edmonton / GNN), the comparison
 //                                       Apple one-hue-plus-gray: 3.95:1 vs white, 3.23:1 vs track, achromatic vs navy
 
 // One horizontal bar row: label (name + sub) · track/fill · mono value.
@@ -57,7 +57,7 @@ function Title({ children, sub }) {
   )
 }
 
-// ── MCP #1 — baseline vs GNN (structural completion) ────────────────
+// ── MCP #1, baseline vs GNN (structural completion) ────────────────
 // Source: mcp-router-eval README.md:19-23 (test split, 236 queries, k=10,
 // GNN mean over 5 seeds).
 const MCP_COLS = 'minmax(92px,30%) 1fr 44px'
@@ -94,7 +94,7 @@ function McpRouters() {
   )
 }
 
-// ── MCP #2 — collapse isolation probe ───────────────────────────────
+// ── MCP #2, collapse isolation probe ───────────────────────────────
 // Source: mcp-router-eval docs/findings-gnn-collapse.md:72,75 (validation
 // split, 235 queries, seed 0).
 function McpProbe() {
@@ -149,7 +149,7 @@ function McpProbe() {
   )
 }
 
-// ── OSM #3 — baseline comparison (AUC + Hits@20) ────────────────────
+// ── OSM #3, baseline comparison (AUC + Hits@20) ────────────────────
 // Source: osm-link-inference README.md:19-22 (per-city, Calgary / Edmonton).
 const OSM_COLS = '62px 1fr 44px'
 const OSM_METHODS = [
@@ -208,7 +208,7 @@ function OsmBaseline() {
       </div>
 
       <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-faint">
-        AUC — higher is better
+        AUC: higher is better
       </p>
       {OSM_METHODS.map((m) => (
         <OsmGroup key={m.name} name={m.name} tag={m.tag} values={m.auc} max={1} fmt={auc2} />
@@ -216,7 +216,7 @@ function OsmBaseline() {
       <Axis ticks={['0', '0.5', '1.0']} cols={OSM_COLS} />
 
       <p className="mt-5 text-[11px] font-semibold uppercase tracking-wide text-faint">
-        Hits@20 — higher is better
+        Hits@20: higher is better
       </p>
       {OSM_METHODS.map((m) => (
         <OsmGroup key={m.name} name={m.name} values={m.hits} max={0.13} fmt={hits2} />
