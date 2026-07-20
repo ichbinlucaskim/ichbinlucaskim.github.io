@@ -58,8 +58,13 @@ export default function Home() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
           <div className="fade-up">
             <p className="text-[14px] font-medium text-accent">{profile.role}</p>
+            {/* Hard break so the headline always reads "Design / that holds.",
+                never "Design that / holds." The nowrap span keeps "that holds."
+                intact at every viewport width. */}
             <h1 className="mt-3 text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
-              Design that holds.
+              Design
+              <br />
+              <span className="whitespace-nowrap">that holds.</span>
             </h1>
             <p className="mt-6 max-w-xl text-[19px] leading-relaxed text-muted">
               Every decision recorded, every stage validated. Learned models
