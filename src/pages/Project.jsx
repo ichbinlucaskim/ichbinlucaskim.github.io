@@ -109,6 +109,15 @@ function AecCaseStudy() {
             deliberately deferred to a stage that would need real factory data to exist.
             They are left unbuilt rather than faked.
           </p>
+          <p className="mt-6">
+            Each stage is its own repository, independently versioned and swappable. The
+            contract between them is pinned as a shared JSON schema rather than as shared
+            code, so a stage can change internally as long as it still honours the schema.
+            CI resolves the pinned sibling repositories on every push and runs the
+            end-to-end integration across all seven, so a contract break fails at the seam,
+            not in production. That cross-boundary check is free in a monorepo; a polyrepo
+            has to build it.
+          </p>
         </Section>
 
         <Section id="judgment" title="Where ML fits vs rule-based">

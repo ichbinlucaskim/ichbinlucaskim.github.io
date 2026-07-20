@@ -226,9 +226,9 @@ export const projects = [
     slug: 'aec-pipeline',
     title: 'Floorplan → framing → IFC: a 7-package prefab pipeline',
     summary:
-      'A room polygon becomes manufacturing-ready building data — walls, transport panels, code-compliant light-wood framing, assembly sequence, and a valid IFC4 model, no Revit. Built as seven independent, schema-linked packages: every stage validates its input and output against a shared JSON contract, and CI runs on every push across all of them. Framing follows prescriptive code tables and sequence is a deterministic topological sort — rule-based where rules are correct, by design.',
+      'A room polygon becomes manufacturing-ready building data — walls, transport panels, code-compliant light-wood framing, assembly sequence, and a valid IFC4 model, no Revit. Framing follows prescriptive code tables and sequence is a deterministic topological sort — rule-based where rules are correct, by design. Built as seven independent, schema-linked packages. Each stage validates its input and output against a shared JSON contract, and polyrepo CI checks out pinned siblings on every push so the contract is verified across repository boundaries, not just inside one.',
     tags: ['Pipeline', 'IFC', 'CI', 'Testing', 'Contracts', 'ADR'],
-    metric: '7 packages · 215 tests · CI on every push · 0 IFC validation errors',
+    metric: '7 packages · 215 tests · polyrepo CI across all seven · 0 IFC validation errors',
     motif: 'plan',
     status: 'live',
     links: [
