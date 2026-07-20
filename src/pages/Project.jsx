@@ -132,23 +132,30 @@ function AecCaseStudy() {
         </Section>
 
         <Section id="results" title="Results">
-          <p className="mb-2 text-[14px] font-medium text-faint">Example hero plan</p>
+          <p className="mb-2 text-[14px] font-medium text-faint">
+            One real plan · plan-008557
+          </p>
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line-soft bg-line-soft sm:grid-cols-4">
             {cs.planMetrics.map((m) => (
               <Metric key={m.label} {...m} />
             ))}
           </div>
-          <p className="mb-2 mt-6 text-[14px] font-medium text-faint">Engineering</p>
+          <p className="mb-2 mt-6 text-[14px] font-medium text-faint">
+            Engineering · repo-wide
+          </p>
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line-soft bg-line-soft sm:grid-cols-3">
             {cs.engMetrics.map((m) => (
               <Metric key={m.label} {...m} />
             ))}
           </div>
           <p className="mt-4 text-[14px] text-faint">
-            Numbers from plan-008557, a real ResPlan plan taken end to end. The pipeline
-            validates its own output at every seam, and the exported IFC4 passes
-            ifcopenshell validation with zero errors. Three plans are run end-to-end in
-            the repo; the source corpus holds roughly 17,000.
+            The four plan metrics are from plan-008557, one real ResPlan plan taken end
+            to end; its ResPlan input is not committed (dataset licensing), so those
+            figures are verified but reproduced from local data, not from the repo alone.
+            The engineering metrics are repo-wide: 215 tests and the six-schema contract
+            across all seven packages, enforced by CI on every push. A committed demo plan
+            is exercised end to end by a golden test, and its exported IFC4 passes
+            ifcopenshell validation with zero errors.
           </p>
         </Section>
 

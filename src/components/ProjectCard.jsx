@@ -37,7 +37,12 @@ export default function ProjectCard({ project }) {
           </span>
         </div>
         <p className="text-[15px] leading-relaxed text-muted">{project.summary}</p>
-        <div className="mt-auto flex flex-wrap gap-2 pt-2">
+        {project.metric && (
+          <p className="mt-auto pt-2 font-mono text-[12.5px] leading-relaxed text-faint">
+            {project.metric}
+          </p>
+        )}
+        <div className={`flex flex-wrap gap-2 pt-2${project.metric ? '' : ' mt-auto'}`}>
           {project.tags.map((t) => (
             <Tag key={t}>{t}</Tag>
           ))}
