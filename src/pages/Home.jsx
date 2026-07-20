@@ -116,16 +116,18 @@ export default function Home() {
               </h2>
               <div className="mt-5 space-y-4 text-[19px] leading-relaxed text-muted">
                 <p>
-                  Lucas Kim is a software engineer who builds machine learning
-                  systems into production pipelines. He is strong with graph
-                  structure, and has applied it across spatial, AEC, and
-                  agentic-AI domains — most recently exploring how GNNs can be
-                  applied to MCP and RAG.
+                  Lucas Kim is a software engineer who takes systems from design
+                  to production: schema contracts between stages, decisions
+                  recorded before the code they govern, and tests that lock
+                  behaviour across changes.
                 </p>
                 <p>
-                  The through-line is judgment: knowing where a learned model
-                  wins, and where a rule-based or deterministic approach is
-                  simpler, auditable, and correct.
+                  His specialism is machine learning systems, and he is strong
+                  with graph structure, applied across spatial, AEC, and
+                  agentic-AI domains. The through-line is judgment: knowing where
+                  a learned model wins, and where a rule-based or deterministic
+                  approach is simpler, auditable, and correct, including the
+                  cases where the honest answer is that the model loses.
                 </p>
               </div>
             </div>
