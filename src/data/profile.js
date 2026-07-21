@@ -14,19 +14,18 @@ export const credentials = {
     {
       primary: 'Projected',
       secondary: 'ML Engineering Intern',
-      tertiary: 'Berlin · Floorplan Generation Pipeline (GNN) · on-site',
+      tertiary: 'Berlin · Schema Contracts & GNN Pipeline Stage · on-site',
       href: 'https://projected.tech/',
     },
     {
       primary: 'Google Code Next',
-      secondary: 'Spatial ML Instructor',
+      secondary: 'ML Instructor',
       tertiary: 'Inglewood · Spatial Studio · volunteer',
     },
     {
-      primary: 'NVIDIA NeMo Guardrails',
-      secondary: 'Open Source Contributor',
-      tertiary: 'Two merged PRs · library integration · CI diagnosis',
-      href: 'https://github.com/NVIDIA-NeMo/Guardrails/pulls?q=is%3Apr+author%3Aichbinlucaskim+is%3Amerged',
+      primary: 'Loyola Marymount University',
+      secondary: 'Graduate Research Assistant',
+      tertiary: 'Los Angeles',
     },
   ],
   education: [
