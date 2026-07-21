@@ -14,18 +14,18 @@ export const credentials = {
     {
       primary: 'Projected',
       secondary: 'ML Engineering Intern',
-      tertiary: 'Berlin · Schema Contracts & GNN Pipeline Stage · on-site',
+      tertiary: 'Berlin · GNN Architecture & Schema Contracts · on-site',
       href: 'https://projected.tech/',
     },
     {
       primary: 'Google Code Next',
       secondary: 'ML Instructor',
-      tertiary: 'Inglewood · Spatial Studio · volunteer',
+      tertiary: 'Inglewood · Architecture Guidance & Code Review · volunteer',
     },
     {
       primary: 'Loyola Marymount University',
       secondary: 'Graduate Research Assistant',
-      tertiary: 'Los Angeles',
+      tertiary: 'Los Angeles · Async Pipeline Design',
     },
   ],
   education: [
