@@ -1,7 +1,6 @@
 // Profile + contact. Edit links here.
 export const profile = {
   name: 'Lucas Kim',
-  role: 'Agent Systems',
   email: 'ichbinlucas211@gmail.com',
   github: 'https://github.com/ichbinlucaskim',
   linkedin: 'https://www.linkedin.com/in/ichbinlucas',

@@ -222,33 +222,6 @@ export const projects = [
     caseStudy: true,
     study: mcpCaseStudy,
   },
-  {
-    slug: 'osm-link-inference',
-    title: 'GNN link prediction for missing OpenStreetMap roads',
-    summary:
-      'Leakage-safe link-prediction pipeline over city road graphs, built as validated stages behind JSON-schema contracts. A distance-matched-negative sampler and a spatial (not random) holdout keep the evaluation honest; a domain feature (stretch) plus GraphSAGE beats heavier SEAL/DRNL on ranking. Determinism and the leakage firewall are enforced by tests, not convention.',
-    tags: ['GNN', 'PyTorch Geometric', 'Geospatial', 'Testing', 'CI', 'Reproducibility', 'ADR'],
-    metric: '109 tests · 26 ADRs · 5 schema contracts · seed-pinned, one-command reproduce',
-    motif: 'roads',
-    status: 'live',
-    links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim/osm-link-inference' }],
-    caseStudy: true,
-    study: osmCaseStudy,
-  },
-  {
-    slug: 'aec-pipeline',
-    title: 'Floorplan → framing → IFC: a 7-package prefab pipeline',
-    summary:
-      'A room polygon becomes manufacturing-ready building data: walls, transport panels, code-compliant light-wood framing, assembly sequence, and a valid IFC4 model, no Revit. Framing follows prescriptive code tables and sequence is a deterministic topological sort, rule-based where rules are correct, by design. Built as seven independent, schema-linked packages. Each stage validates its input and output against a shared JSON contract, and polyrepo CI checks out pinned siblings on every push so the contract is verified across repository boundaries, not just inside one.',
-    tags: ['Pipeline', 'IFC', 'CI', 'Testing', 'Contracts', 'ADR'],
-    metric: '7 packages · 215 tests · polyrepo CI across all seven · 0 IFC validation errors',
-    motif: 'plan',
-    status: 'live',
-    links: [
-      { label: 'GitHub · 7-repo polyrepo (orchestrator)', href: 'https://github.com/ichbinlucaskim/floorplan-pipeline' },
-    ],
-    caseStudy: true,
-  },
 ]
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)
