@@ -210,6 +210,19 @@ const mcpCaseStudy = {
 export const projects = [
   // Live case studies first, then NDA-pending internship placeholders.
   {
+    slug: 'mcp-router-eval',
+    title: 'Does a GNN beat retrieval for MCP tool routing?',
+    summary:
+      'A controlled harness benchmarking five routers behind one byte-identical contract layer, so the comparison isolates ranking quality and nothing else. The answer is an audited negative result: dense retrieval wins, the GNN collapses. A strict xfail test locks it and flips the moment a fix lands. Every decision is an ADR; every run is seed-pinned and re-runnable.',
+    tags: ['Evaluation', 'GNN', 'MCP', 'Testing', 'CI', 'Reproducibility', 'ADR'],
+    metric: '213 tests · 31 ADRs · 5 routers / 1 contract · mean over 5 seeds',
+    motif: 'router',
+    status: 'live',
+    links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim/mcp-router-eval' }],
+    caseStudy: true,
+    study: mcpCaseStudy,
+  },
+  {
     slug: 'osm-link-inference',
     title: 'GNN link prediction for missing OpenStreetMap roads',
     summary:
@@ -235,19 +248,6 @@ export const projects = [
       { label: 'GitHub · 7-repo polyrepo (orchestrator)', href: 'https://github.com/ichbinlucaskim/floorplan-pipeline' },
     ],
     caseStudy: true,
-  },
-  {
-    slug: 'mcp-router-eval',
-    title: 'Does a GNN beat retrieval for MCP tool routing?',
-    summary:
-      'A controlled harness benchmarking five routers behind one byte-identical contract layer, so the comparison isolates ranking quality and nothing else. The answer is an audited negative result: dense retrieval wins, the GNN collapses. A strict xfail test locks it and flips the moment a fix lands. Every decision is an ADR; every run is seed-pinned and re-runnable.',
-    tags: ['Evaluation', 'GNN', 'MCP', 'Testing', 'CI', 'Reproducibility', 'ADR'],
-    metric: '213 tests · 31 ADRs · 5 routers / 1 contract · mean over 5 seeds',
-    motif: 'router',
-    status: 'live',
-    links: [{ label: 'GitHub', href: 'https://github.com/ichbinlucaskim/mcp-router-eval' }],
-    caseStudy: true,
-    study: mcpCaseStudy,
   },
 ]
 

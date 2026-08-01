@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { projects } from '../data/projects.js'
+import { articles } from '../data/articles.js'
 import { profile, credentials } from '../data/profile.js'
 import ProjectCard from '../components/ProjectCard.jsx'
+import ArticleRow from '../components/ArticleRow.jsx'
 import HeroGraph from '../components/HeroGraph.jsx'
 
 // Black-to-cobalt text gradient (near-black → saturated cobalt) for the large
@@ -77,8 +79,9 @@ export default function Home() {
               <span className="whitespace-nowrap">that holds.</span>
             </h1>
             <p className="mt-6 max-w-xl text-[19px] leading-relaxed text-muted">
-              Every decision recorded, every stage validated. Learned models
-              where learning wins, deterministic rules where it does not.
+              Agents where the path cannot be known in advance, workflows where
+              it can. Every architectural decision recorded, every stage
+              validated.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
@@ -99,6 +102,29 @@ export default function Home() {
           <div className="fade-up hidden justify-self-end lg:block" style={{ animationDelay: '0.15s' }}>
             <HeroGraph className="w-[320px] max-w-full" />
           </div>
+        </div>
+      </section>
+
+      {/* ── Articles ── */}
+      {/* A text list, not cards: articles accumulate, and a list scales past
+          twenty entries where a card grid stops reading. Heading matches
+          Selected work; bg-surface keeps the section distinct from the canvas
+          hero above and the surface-2 work section below. */}
+      <section id="articles" className="scroll-mt-24 bg-surface py-20 sm:py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="mb-10 flex items-end justify-between">
+            <h2 className="text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold tracking-tight text-ink">
+              Articles
+            </h2>
+            <p className="hidden text-[15px] text-faint sm:block">
+              {articles.length} {articles.length === 1 ? 'article' : 'articles'}
+            </p>
+          </div>
+          <ul className="divide-y divide-line-soft border-y border-line-soft">
+            {articles.map((a) => (
+              <ArticleRow key={a.slug} article={a} />
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -131,18 +157,14 @@ export default function Home() {
               </h2>
               <div className="mt-5 space-y-4 text-[19px] leading-relaxed text-muted">
                 <p>
-                  Lucas Kim is a software engineer who takes systems from design
-                  to production: schema contracts between stages, decisions
-                  recorded before the code they govern, and tests that lock
-                  behaviour across changes.
-                </p>
-                <p>
-                  His specialism is machine learning systems, and he is strong
-                  with graph structure, applied across spatial, AEC, and
-                  agentic-AI domains. The through-line is judgment: knowing where
-                  a learned model wins, and where a rule-based or deterministic
-                  approach is simpler, auditable, and correct, including the
-                  cases where the honest answer is that the model loses.
+                  Lucas Kim's background is in machine learning, and during his
+                  graduate studies he has focused on agent systems: how
+                  LLM-based agents route across tools, retrieve what they need,
+                  and stay reliable in production. The through-line is judgment:
+                  knowing where a learned or agentic approach wins, and where a
+                  rule-based or deterministic one is simpler, auditable, and
+                  correct, including the cases where the honest answer is that
+                  the model loses.
                 </p>
               </div>
             </div>

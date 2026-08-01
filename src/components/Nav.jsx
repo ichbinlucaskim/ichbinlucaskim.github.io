@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { profile } from '../data/profile.js'
 
 const sections = [
+  { id: 'articles', label: 'Articles' },
   { id: 'work', label: 'Work' },
   { id: 'about', label: 'About' },
   { id: 'practice', label: 'Practice' },

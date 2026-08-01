@@ -6,6 +6,7 @@ import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import Project from './pages/Project.jsx'
+import Article from './pages/Article.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 function Layout() {
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/projects/:slug" element={<Project />} />
+          <Route path="/articles/:slug" element={<Article />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
