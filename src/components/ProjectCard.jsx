@@ -5,12 +5,14 @@ import Tag from './Tag.jsx'
 // Live projects are a single link to their case study (Brittany Chiang
 // pattern). "Coming" projects are NDA-pending placeholder slots: not a
 // link, muted, just a title and a "Coming soon" state.
-export default function ProjectCard({ project }) {
+// `basePath` lets the same card render other item types (e.g. articles)
+// with identical styling, only the route prefix changes.
+export default function ProjectCard({ project, basePath = 'projects' }) {
   if (project.status === 'coming') return <ComingCard project={project} />
 
   return (
     <Link
-      to={`/projects/${project.slug}`}
+      to={`/${basePath}/${project.slug}`}
       onClick={() => window.scrollTo({ top: 0 })}
       className="group flex flex-col overflow-hidden rounded-2xl border border-line-soft bg-canvas transition-all duration-300 hover:-translate-y-1 hover:border-line hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.18)] focus-visible:-translate-y-1"
     >
