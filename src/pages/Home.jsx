@@ -8,7 +8,7 @@ import ArticleRow from '../components/ArticleRow.jsx'
 import HeroGraph from '../components/HeroGraph.jsx'
 
 // Black-to-cobalt text gradient (near-black → saturated cobalt) for the large
-// "Think in Systems" heading only, it has room to read there. Solid
+// "Think with Agents" heading only, it has room to read there. Solid
 // #0047AB fallback (via `color`) keeps the text visible where
 // background-clip:text is unsupported, never invisible.
 const navyTextGradient = {
@@ -18,37 +18,6 @@ const navyTextGradient = {
   backgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
 }
-
-// Engineering-practice claims. Every line is backed by the repositories; see
-// the per-project case studies for the specific files, tests, and ADRs.
-const practice = [
-  {
-    title: 'Architecture decision records for non-obvious choices',
-    body: 'About 88 documented decisions across the portfolio, 65 formal numbered ADRs plus 23 consolidated log entries, written before the code they govern, with supersede-not-delete discipline.',
-  },
-  {
-    title: 'Honest assumptions and audited negative results',
-    body: 'Scope boundaries, how the numbers got honest, and two negative findings shipped as deliverables rather than hidden.',
-  },
-  {
-    title: 'Regression tests that lock past-defect behaviour',
-    body: 'Geometry-placement and unit regressions tied to named defects (AEC), leakage-firewall and determinism locks (OSM), a strict xfail wired to a findings doc (MCP).',
-  },
-  {
-    title: 'Reproducible, versioned evaluation harnesses',
-    body: 'Seed-pinned, dataset-pinned to an upstream commit, one-command re-run.',
-  },
-  {
-    title: 'Code review through open-source contribution',
-    body: 'Two merged pull requests to NVIDIA NeMo Guardrails, each documenting the alternatives considered and why one was chosen. Maintainer review on both.',
-    // Spans both columns so the fifth item does not leave an empty grid cell.
-    wide: true,
-    links: [
-      { label: 'PR #1611', href: 'https://github.com/NVIDIA-NeMo/Guardrails/pull/1611' },
-      { label: 'PR #1610', href: 'https://github.com/NVIDIA-NeMo/Guardrails/pull/1610' },
-    ],
-  },
-]
 
 export default function Home() {
   const location = useLocation()
@@ -69,14 +38,10 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 pb-20 pt-16 sm:pt-24">
         <div className="grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
           <div className="fade-up">
-            <p className="text-[14px] font-medium text-accent">{profile.role}</p>
-            {/* Hard break so the headline always reads "Design / that holds.",
-                never "Design that / holds." The nowrap span keeps "that holds."
-                intact at every viewport width. */}
-            <h1 className="mt-3 text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
-              Design
-              <br />
-              <span className="whitespace-nowrap">that holds.</span>
+            {/* No eyebrow: the h1 opens the page, so it carries no top margin
+                and the block starts at the section's own top padding. */}
+            <h1 className="text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
+              Agents.
             </h1>
             <p className="mt-6 max-w-xl text-[19px] leading-relaxed text-muted">
               Agents where the path cannot be known in advance, workflows where
@@ -136,7 +101,7 @@ export default function Home() {
               Selected work
             </h2>
             <p className="hidden text-[15px] text-faint sm:block">
-              {projects.length} projects
+              {projects.length} {projects.length === 1 ? 'project' : 'projects'}
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
@@ -177,51 +142,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Engineering practice ── */}
-      <section id="practice" className="scroll-mt-24 bg-surface-2 py-20 sm:py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold tracking-tight text-ink">
-            Engineering practice
-          </h2>
-          <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-muted">
-            Consistent across every project, and backed by the repositories.
-          </p>
-          <dl className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line-soft bg-line-soft sm:grid-cols-2">
-            {practice.map((it) => (
-              <div
-                key={it.title}
-                className={`bg-canvas p-6${it.wide ? ' sm:col-span-2' : ''}`}
-              >
-                <dt className="text-[16px] font-semibold text-ink">{it.title}</dt>
-                <dd className="mt-2 text-[14px] leading-relaxed text-muted">
-                  {it.body}
-                </dd>
-                {it.links && (
-                  <div className="mt-3 flex flex-wrap gap-4">
-                    {it.links.map((l) => (
-                      <a
-                        key={l.href}
-                        href={l.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-[13px] font-medium text-accent underline-offset-2 transition-colors hover:text-accent-ink hover:underline"
-                      >
-                        {l.label} ↗
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </dl>
-          <p className="mt-6 text-[14px] leading-relaxed text-faint">
-            CI runs on every push across all nine repositories: ruff lint and
-            tests on each commit, with strict mypy type-checking where it is
-            configured. The gate differs by repo, not the fact of it.
-          </p>
-        </div>
-      </section>
-
       {/* ── Contact ── */}
       <section id="contact" className="scroll-mt-24 bg-surface py-28 sm:py-36">
         <div className="mx-auto max-w-5xl px-6 text-center">
@@ -231,7 +151,7 @@ export default function Home() {
             className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight text-accent"
             style={navyTextGradient}
           >
-            Think in Systems
+            Think with Agents
           </h2>
           <div className="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
             <a

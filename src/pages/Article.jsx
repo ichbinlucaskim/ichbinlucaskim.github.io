@@ -77,37 +77,73 @@ function Block({ block, first }) {
         </p>
       )
 
+    // Ordered and unordered lists share an item shape: an optional bold `lead`
+    // term, an em dash, then the text. `lead` is optional because some items
+    // read as plain sentences and a forced bold term would break the grammar.
+    // `start` continues an ol that prose interrupted, so a sequence split
+    // across two lists keeps one run of numbers.
     case 'ol':
+    case 'ul': {
+      const ordered = block.type === 'ol'
+      const List = ordered ? 'ol' : 'ul'
       return (
-        <ol
-          className={`list-decimal space-y-4 pl-6 marker:font-mono marker:text-[15px] marker:text-accent${
-            first ? '' : ' mt-6'
-          }`}
+        <List
+          start={ordered ? block.start : undefined}
+          className={`${
+            ordered
+              ? 'list-decimal marker:font-mono marker:text-[15px]'
+              : 'list-disc'
+          } space-y-4 pl-6 marker:text-accent${first ? '' : ' mt-6'}`}
         >
           {block.items.map((it, i) => (
             <li key={i} className="pl-1 text-[18px] leading-[1.75] text-muted">
-              <strong className="font-semibold text-ink">{it.lead}</strong>
-              {' — '}
+              {it.lead && (
+                <>
+                  <strong className="font-semibold text-ink">{it.lead}</strong>
+                  {' — '}
+                </>
+              )}
               <Inline content={it.text} />
             </li>
           ))}
-        </ol>
+        </List>
       )
+    }
 
     default:
       return null
   }
 }
 
-// Block text is either a plain string or an array of strings and { em } parts
-// for inline italics (cited titles).
+// Block text is either a plain string or an array of parts: plain strings,
+// { em } for inline italics (cited titles, defined terms), and
+// { link: { href, text } } for an inline external hyperlink.
 function Inline({ content }) {
   if (typeof content === 'string') return content
   return content.map((part, i) => (
     <Fragment key={i}>
-      {typeof part === 'string' ? part : <em className="italic">{part.em}</em>}
+      {typeof part === 'string' ? part : <Part part={part} />}
     </Fragment>
   ))
+}
+
+function Part({ part }) {
+  // Inline prose links carry a standing underline rather than the site's
+  // hover-only treatment: mid-sentence, colour alone is not enough to mark a
+  // link. No trailing ↗ either, which reads as punctuation inside a sentence.
+  if (part.link) {
+    return (
+      <a
+        href={part.link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-medium text-accent underline underline-offset-2 transition-colors hover:text-accent-ink"
+      >
+        {part.link.text}
+      </a>
+    )
+  }
+  return <em className="italic">{part.em}</em>
 }
 
 function ComingSoon() {
