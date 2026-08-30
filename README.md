@@ -33,7 +33,16 @@ A seven-part series on agent systems, in reading order.
 
 ## Selected work
 
-**[Does a GNN beat retrieval for MCP tool routing?](https://ichbinlucaskim.github.io/projects/mcp-router-eval)** — Frames MCP tool routing
+**[Agent Systems](https://ichbinlucaskim.github.io/projects/agent-systems-book)**. An
+introduction to designing, building, evaluating, and operating agent systems on large
+language models. Seven parts and twenty-three chapters, sitting between framework guides
+that go stale and papers that cover one technique. Each chapter says why a part is needed,
+when not to use it, and what you pay when you pick it.
+· [Repo](https://github.com/ichbinlucaskim/agent-system)
+· [PDF (English)](https://github.com/ichbinlucaskim/agent-system/blob/main/book-eng/agent-systems-eng.pdf)
+· [PDF (Korean)](https://github.com/ichbinlucaskim/agent-system/blob/main/book-kor/agent-systems-kor.pdf)
+
+**[Does a GNN beat retrieval for MCP tool routing?](https://ichbinlucaskim.github.io/projects/mcp-router-eval)** Frames MCP tool routing
 as ranking over a tool graph and asks whether a GNN beats retrieval. It does not: dense
 retrieval completes 0.979 of queries, the GNN at most 0.052. The value is an audited
 negative finding and a diagnosis of why the GNN collapses.
