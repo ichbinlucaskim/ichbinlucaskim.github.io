@@ -40,13 +40,13 @@ export default function Home() {
           <div className="fade-up">
             {/* No eyebrow: the h1 opens the page, so it carries no top margin
                 and the block starts at the section's own top padding. */}
-            <h1 className="text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
-              Agents.
+            <h1 className="text-balance text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
+              Judgment for agents.
             </h1>
             <p className="mt-6 max-w-xl text-[19px] leading-relaxed text-muted">
               Agents where the path cannot be known in advance, workflows where
-              it can. Every architectural decision recorded, every stage
-              validated.
+              it can. Thinking carefully about when a human should intervene,
+              and how much autonomy an agent can reasonably be given.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a

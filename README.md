@@ -1,28 +1,52 @@
 # Lucas Kim
 
-Graph ML engineer. I understand the world through graph structure, and have applied it
-across spatial and AEC domains. The common thread is judgment: knowing where a learned
-model wins, and where a rule-based or deterministic approach is simpler, auditable, and
-correct.
+Judgment for agents. Agents where the path cannot be known in advance, workflows where
+it can. Thinking carefully about when a human should intervene, and how much autonomy an
+agent can reasonably be given.
+
+My background is in machine learning, and during my graduate studies I have focused on
+agent systems: how LLM-based agents route across tools, retrieve what they need, and
+stay reliable in production. The through-line is judgment: knowing where a learned or
+agentic approach wins, and where a rule-based or deterministic one is simpler, auditable,
+and correct, including the cases where the honest answer is that the model loses.
 
 Live site: https://ichbinlucaskim.github.io
 
+## Writing
+
+A seven-part series on agent systems, in reading order.
+
+1. **[What is an Agent?](https://ichbinlucaskim.github.io/articles/what-is-an-agent)** —
+   What an agent actually is, how it differs from a workflow, and when not to build one.
+2. **[About RAG](https://ichbinlucaskim.github.io/articles/about-rag)** — What RAG
+   actually does, why chunking is the hard part, and when a simpler approach wins.
+3. **[MCP](https://ichbinlucaskim.github.io/articles/mcp)** — What the Model Context
+   Protocol is, and what problem it actually solves.
+4. **[Agent Harness Design](https://ichbinlucaskim.github.io/articles/agent-harness-design)** —
+   Why the harness around the model, not the model itself, decides how well an agent
+   performs.
+5. **[Ontology and Knowledge Graphs](https://ichbinlucaskim.github.io/articles/ontology-and-knowledge-graphs)** —
+   The questions vector search cannot answer, and what explicit structure buys you.
+6. **[How to Evaluate Agents](https://ichbinlucaskim.github.io/articles/how-to-evaluate-agents)** —
+   What to measure, why it is harder than it looks, and how to know the complexity paid
+   off.
+7. **[Single Agent vs Multi-Agent](https://ichbinlucaskim.github.io/articles/single-agent-vs-multi-agent)** —
+   When splitting work across agents helps, and when it just multiplies the failure
+   modes.
+
 ## Selected work
 
-**[GNN link prediction for missing OpenStreetMap roads](https://ichbinlucaskim.github.io/projects/osm-link-inference)** — Edge-level link
-prediction over city road graphs: given two intersections, infer whether a road should
-connect them. GraphSAGE encoder with a Hadamard-MLP decoder, leakage-safe by
-construction, evaluated on ranking metrics rather than accuracy. The model proposes;
-deterministic rules dispose; a person approves.
-· [Repo](https://github.com/ichbinlucaskim/osm-link-inference)
+**[Agent Systems](https://ichbinlucaskim.github.io/projects/agent-systems-book)**. An
+introduction to designing, building, evaluating, and operating agent systems on large
+language models. Seven parts and twenty-three chapters, sitting between framework guides
+that go stale and papers that cover one technique. Each chapter says why a part is needed,
+when not to use it, and what you pay when you pick it. Written in Korean and translated
+into English.
+· [Repo](https://github.com/ichbinlucaskim/agent-system)
+· [PDF (English)](https://github.com/ichbinlucaskim/agent-system/blob/main/book-eng/agent-systems-eng.pdf)
+· [PDF (Korean)](https://github.com/ichbinlucaskim/agent-system/blob/main/book-kor/agent-systems-kor.pdf)
 
-**[Floorplan to structural decomposition to IFC](https://ichbinlucaskim.github.io/projects/aec-pipeline)** — A seven-package pipeline
-turning a 2D floor plan into manufacturing-ready data for panelized prefab: walls and
-openings, transport-legal panels, code-prescriptive framing, build order, validated
-IFC4. Fully deterministic — no learned model ships anywhere, and that is the point.
-· [Repo](https://github.com/ichbinlucaskim/floorplan-pipeline)
-
-**[Does a GNN beat retrieval for MCP tool routing?](https://ichbinlucaskim.github.io/projects/mcp-router-eval)** — Frames MCP tool routing
+**[Does a GNN beat retrieval for MCP tool routing?](https://ichbinlucaskim.github.io/projects/mcp-router-eval)** Frames MCP tool routing
 as ranking over a tool graph and asks whether a GNN beats retrieval. It does not: dense
 retrieval completes 0.979 of queries, the GNN at most 0.052. The value is an audited
 negative finding and a diagnosis of why the GNN collapses.

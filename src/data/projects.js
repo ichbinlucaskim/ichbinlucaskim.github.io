@@ -207,8 +207,105 @@ const mcpCaseStudy = {
   ],
 }
 
+// ── Case study: agent-systems book (P6) ────────────────────────────
+// An introduction, not a framework guide and not a code book. Numbers are
+// the committed PDFs: 23 chapters in the build, 302 and 252 pages.
+const bookCaseStudy = {
+  blocks: [
+    {
+      id: 'overview',
+      title: 'Overview',
+      type: 'prose',
+      paragraphs: [
+        'A book on designing, building, evaluating, and operating agent systems built on large language models. Seven parts, twenty-three chapters, written in Korean and translated into English. Both editions live in one repository as a PDF.',
+        'Writing in this field tends to sit at two extremes. On one side are guides to a particular framework, which go stale when the framework changes. On the other are research papers that propose one technique and say nothing about how a whole system fits together. The book works in the space between: why a part is needed, when not to use it, and what you pay when you pick it.',
+      ],
+    },
+    {
+      id: 'arc',
+      title: 'How the parts run',
+      nav: 'The arc',
+      type: 'cards',
+      lead: 'Seven parts in three movements. Each one assumes the vocabulary the one before it fixed.',
+      items: [
+        {
+          kind: 'Parts 1 to 3',
+          title: 'The loop and what feeds it',
+          body: 'What counts as an agent, and who decides the next step. Then the two things the loop consumes: a finite context, and tools that reach the outside world. These chapters fix the terms the rest of the book uses, including the token as the unit of the budget and what a tool definition can and cannot promise.',
+        },
+        {
+          kind: 'Parts 4 and 5',
+          title: 'Knowledge and control',
+          body: 'Retrieval and memory: how to find what you left outside the context, and what survives past a session. Then control that owns the cycle from outside the model, which decides when to stop, what state to keep, and how to start again after a failure.',
+        },
+        {
+          kind: 'Parts 6 and 7',
+          title: 'Evidence and consequence',
+          body: 'How you know something got better, and what a run has to leave behind to be examined later. Then what decides whether a system can be operated at all: who stands in front of a result that cannot be undone, and how to take in text that comes from outside.',
+        },
+      ],
+    },
+    {
+      id: 'method',
+      title: 'How it is written',
+      nav: 'Method',
+      type: 'prose',
+      paragraphs: [
+        'Each chapter opens with the decision it is about, works from an intuition to a concrete case to a precise statement, and translates the result back into plain language. Claims taken from a specification or a paper carry a citation, and details of a product or a protocol are dated to this edition. Most chapters close with a short list of things small enough to try the same day, and with the questions the chapter did not settle.',
+        'It is an introduction, and it stays one. There is no program code in it: what it prints verbatim are prompts, tool definitions, and JSON schemas. It is not a guide to any framework, and it does not benchmark one framework against another. Where a question is open, the chapter says so instead of picking a side.',
+      ],
+    },
+    {
+      id: 'editions',
+      title: 'The two editions',
+      nav: 'Editions',
+      type: 'metrics',
+      groups: [
+        {
+          cols: 4,
+          items: [
+            { value: '7', label: 'parts' },
+            { value: '23', label: 'chapters' },
+            { value: '302', label: 'pages, English' },
+            { value: '252', label: 'pages, Korean' },
+          ],
+          note: 'First edition, August 2026. The Korean edition is the original; the English edition is translated from it. This field moves fast, so details of a specific product or specification are as of this edition.',
+        },
+      ],
+    },
+    {
+      id: 'tech',
+      title: 'Tech & links',
+      nav: 'Tech',
+      type: 'tech',
+      tech: ['XeLaTeX', 'BibTeX', 'PDF', 'Korean', 'English'],
+      link: {
+        label: 'View the repository',
+        href: 'https://github.com/ichbinlucaskim/agent-system',
+      },
+    },
+  ],
+}
+
 export const projects = [
   // Live case studies first, then NDA-pending internship placeholders.
+  {
+    slug: 'agent-systems-book',
+    title: 'Agent Systems',
+    summary:
+      'An introduction to designing, building, evaluating, and operating agent systems on large language models. Seven parts and twenty-three chapters, sitting between framework guides that go stale and papers that cover one technique. Each chapter says why a part is needed, when not to use it, and what you pay when you pick it. Written in Korean and translated into English.',
+    tags: ['Agents', 'Context', 'Tools', 'RAG', 'Memory', 'Evaluation', 'Operations'],
+    metric: '7 parts · 23 chapters · 302 pages (EN) · 252 pages (KO)',
+    motif: 'strata',
+    status: 'live',
+    links: [
+      { label: 'Repo', href: 'https://github.com/ichbinlucaskim/agent-system' },
+      { label: 'PDF (English)', href: 'https://github.com/ichbinlucaskim/agent-system/blob/main/book-eng/agent-systems-eng.pdf' },
+      { label: 'PDF (Korean)', href: 'https://github.com/ichbinlucaskim/agent-system/blob/main/book-kor/agent-systems-kor.pdf' },
+    ],
+    caseStudy: true,
+    study: bookCaseStudy,
+  },
   {
     slug: 'mcp-router-eval',
     title: 'Does a GNN beat retrieval for MCP tool routing?',

@@ -24,7 +24,7 @@ export const credentials = {
     {
       primary: 'Loyola Marymount University',
       secondary: 'Graduate Research Assistant',
-      tertiary: 'Los Angeles · Async Pipeline Design',
+      tertiary: 'Los Angeles',
     },
   ],
   education: [
