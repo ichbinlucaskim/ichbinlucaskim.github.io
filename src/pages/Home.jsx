@@ -41,7 +41,7 @@ export default function Home() {
             {/* No eyebrow: the h1 opens the page, so it carries no top margin
                 and the block starts at the section's own top padding. */}
             <h1 className="text-balance text-[clamp(2.6rem,6vw,4.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-ink">
-              Judgment for agents.
+              Reliable agent design.
             </h1>
             <p className="mt-6 max-w-xl text-[19px] leading-relaxed text-muted">
               Agents where the path cannot be known in advance, workflows where
@@ -125,11 +125,11 @@ export default function Home() {
                   Lucas Kim's background is in machine learning, and during his
                   graduate studies he has focused on agent systems: how
                   LLM-based agents route across tools, retrieve what they need,
-                  and stay reliable in production. The through-line is judgment:
-                  knowing where a learned or agentic approach wins, and where a
-                  rule-based or deterministic one is simpler, auditable, and
-                  correct, including the cases where the honest answer is that
-                  the model loses.
+                  and hold up in production. The through-line is reliability: it
+                  comes from knowing where a learned or agentic approach wins,
+                  and where a rule-based or deterministic one is simpler,
+                  auditable, and correct, including the cases where the honest
+                  answer is that the model loses.
                 </p>
               </div>
             </div>

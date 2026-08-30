@@ -1,14 +1,15 @@
 # Lucas Kim
 
-Judgment for agents. Agents where the path cannot be known in advance, workflows where
+Reliable agent design. Agents where the path cannot be known in advance, workflows where
 it can. Thinking carefully about when a human should intervene, and how much autonomy an
 agent can reasonably be given.
 
 My background is in machine learning, and during my graduate studies I have focused on
 agent systems: how LLM-based agents route across tools, retrieve what they need, and
-stay reliable in production. The through-line is judgment: knowing where a learned or
-agentic approach wins, and where a rule-based or deterministic one is simpler, auditable,
-and correct, including the cases where the honest answer is that the model loses.
+hold up in production. The through-line is reliability: it comes from knowing where a
+learned or agentic approach wins, and where a rule-based or deterministic one is simpler,
+auditable, and correct, including the cases where the honest answer is that the model
+loses.
 
 Live site: https://ichbinlucaskim.github.io
 
