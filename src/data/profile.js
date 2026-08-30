@@ -19,7 +19,7 @@ export const credentials = {
     {
       primary: 'Google Code Next',
       secondary: 'ML Instructor',
-      tertiary: 'Inglewood · Architecture Guidance & Code Review · volunteer',
+      tertiary: 'Inglewood · Architecture Review & AI Use Guidelines · volunteer',
     },
     {
       primary: 'Loyola Marymount University',
