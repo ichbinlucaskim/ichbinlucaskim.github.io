@@ -1,11 +1,14 @@
 # Lucas Kim
 
-Agent systems. My background is in machine learning, and during my graduate studies I
-have focused on agent systems: how LLM-based agents route across tools, retrieve what
-they need, and stay reliable in production. The through-line is judgment: knowing where
-a learned or agentic approach wins, and where a rule-based or deterministic one is
-simpler, auditable, and correct, including the cases where the honest answer is that the
-model loses.
+Judgment for agents. Agents where the path cannot be known in advance, workflows where
+it can. Thinking carefully about when a human should intervene, and how much autonomy an
+agent can reasonably be given.
+
+My background is in machine learning, and during my graduate studies I have focused on
+agent systems: how LLM-based agents route across tools, retrieve what they need, and
+stay reliable in production. The through-line is judgment: knowing where a learned or
+agentic approach wins, and where a rule-based or deterministic one is simpler, auditable,
+and correct, including the cases where the honest answer is that the model loses.
 
 Live site: https://ichbinlucaskim.github.io
 
@@ -37,7 +40,8 @@ A seven-part series on agent systems, in reading order.
 introduction to designing, building, evaluating, and operating agent systems on large
 language models. Seven parts and twenty-three chapters, sitting between framework guides
 that go stale and papers that cover one technique. Each chapter says why a part is needed,
-when not to use it, and what you pay when you pick it.
+when not to use it, and what you pay when you pick it. Written in Korean and translated
+into English.
 · [Repo](https://github.com/ichbinlucaskim/agent-system)
 · [PDF (English)](https://github.com/ichbinlucaskim/agent-system/blob/main/book-eng/agent-systems-eng.pdf)
 · [PDF (Korean)](https://github.com/ichbinlucaskim/agent-system/blob/main/book-kor/agent-systems-kor.pdf)
